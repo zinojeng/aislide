@@ -4,17 +4,11 @@
 
 This was a 24-week study with about 200 people. They were assigned by chance to two groups. Before reading the results, we should check what each group received and how outcomes were measured. This helps us understand what the study can and cannot tell us.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-One group received digital support with basal insulin care. The other received usual care. It was an open-label study. This means that patients and staff knew which group they were in.
+Patients and staff knew their study group. We should consider the teaching and follow-up given to both groups.
 
-Knowing the group may change behavior. Patients may check more often, and staff may give more attention. We therefore need to understand the education and follow-up provided to both groups.
-
-We should also ask how many people finished the study and how missing data were handled. Assigning groups by chance helps make a fair comparison, but it does not remove every problem.
-
-The report did not show a clear difference in adherence, meaning how well people followed the treatment plan. We should not claim that better adherence explains the glucose result without evidence.
-
-Before bringing this tool to our clinic, we need to compare the study process with our own service. If the study included regular support calls, can we provide them? The tool and the care around it both matter.
+病人與工作人員知道各自所屬組別。解讀結果時，也要考慮兩組接受的教學與追蹤。
 
 ## 中文提示
 

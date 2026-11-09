@@ -4,19 +4,11 @@
 
 This example turns a thyroid ultrasound video into teaching material. We want learners to find the right section and check the explanation against the image. Keeping the original visual details is important. A written summary should support image review, not replace it.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-A short clip can show an image feature better than a single still picture. We should keep the original clip and the time at which the teaching image was taken.
+Keep the original video for checking image details. An AI label should match what we can actually see.
 
-AI can help describe the image or prepare a question. But a bright spot should not automatically become a diagnosis. Features such as a comet-tail appearance need the surrounding image and the clinical setting.
-
-We should check whether the arrow points to the correct place. We should also ask whether another view is needed. The wording should match what we can actually see.
-
-One teaching method is to hide the label first. Ask the learner to describe the image in their own words. Then show the checked explanation and discuss the difference.
-
-If the AI label seems wrong, return to the video. Do not accept it only because it sounds professional.
-
-This slide shows a way to organize and teach from medical video. It does not prove that the model can diagnose thyroid disease on its own.
+保留原始影片，方便核對影像細節。AI 標示的內容應符合實際可見的影像。
 
 ## 中文提示
 

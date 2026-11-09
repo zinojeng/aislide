@@ -4,19 +4,11 @@
 
 This case compares insulin use at 23 and 30 weeks of pregnancy. Insulin needs increased between these visits. We should check the total dose, meal doses, and glucose results together. These numbers describe one case; they do not show that every pregnant patient will need the same change.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The basal and meal amounts shown add up to 25.7 units at twenty-three weeks and 70.7 units at thirty weeks. The later amount is about 2.75 times the earlier amount.
+The daily dose rose from 25.7 to 70.7 units in this case. We can say it became almost three times as much, while checking the patient's current needs.
 
-It is clearer to say “became almost three times as much” than “increased by three times.” We should also check whether correction insulin is already included in the total.
-
-Most of the increase is in meal insulin, from 18 to 56.7 units. Basal insulin rises from 7.7 to 14 units.
-
-These numbers describe this patient's course. They do not prove that the same bowl of rice needed three times as much insulin. Food intake, weight, pump use, and glucose results also need review.
-
-A rising dose can worry a pregnant patient. We can explain that insulin needs may change during pregnancy. A higher dose does not mean the patient has failed. But it is also not proof that the baby is growing well.
-
-The team should review glucose and low-glucose risk over time. Each change needs a reason based on the patient's current information.
+此案例每日劑量從 25.7 增至 70.7 單位。可說「變成接近三倍」，同時仍要評估病人當下的需求。
 
 ## 中文提示
 

@@ -4,19 +4,11 @@
 
 A transcript records the words spoken in a video. It may contain repetition and unclear sentences. We can turn it into a shorter explanation, but we must keep the original meaning. Study numbers, comparison groups, and limits should be checked against the source.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The next step is to turn it into a clear clinical summary. Tools such as Gemini or Codex can help organize the study question, patient group, treatment, comparison group, results, and limits.
+Keep the study group, follow-up time, and main result together. Check small words too, because a missing word can change the meaning.
 
-We need to keep the important numbers. Sample size, follow-up time, and the size of the treatment effect should stay linked to the source page or video time.
-
-Small words matter too. “No clear increase” is different from “no increase.” A missing word can change the message.
-
-Audio alone may not explain a chart fully. If the speaker points to a forest plot without reading every number, we need the original slide as well.
-
-After review, the summary becomes a shared starting point for scripts, questions, and teaching slides. It is not automatically correct because AI wrote it.
-
-When we find an error, we should correct this shared summary first. That helps keep the later Chinese, English, audio, and video versions consistent.
+研究族群、追蹤時間與主要結果要一起保留。小字詞也需核對，漏字可能改變意思。
 
 ## 中文提示
 

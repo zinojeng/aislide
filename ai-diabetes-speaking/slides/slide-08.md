@@ -4,17 +4,11 @@
 
 This study looked at Dina, a chatbot for women with gestational diabetes. It shows what users asked and how the system handled those questions. Response coverage is not the same as medical accuracy. We should not assume that every answer was correct or that health outcomes improved.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The researchers reviewed 610 conversations with 2,838 questions. Questions about glucose, GDM, food, and activity made up about 59 percent of the total. These are common parts of diabetes education. Patients often need to hear the information again when they use it at home.
+Answering a question does not mean the answer is correct. We need to check answer quality separately from the number of questions answered.
 
-The chatbot could answer 88.51 percent of questions. This tells us how many questions received an answer. It does not tell us that 88.51 percent of the answers were medically correct or safe.
-
-The study also used two different data-collection periods. They were not pregnancy and postpartum periods in the same group of women. We should not explain the change in use as a fall in need after delivery.
-
-For our service, we can use this study to choose common questions to prepare first. We should also review questions the chatbot cannot answer. Some need better information. Others need a person.
-
-The study did not prove better glucose control or less anxiety. We would need to measure those outcomes separately.
+有回答問題，不代表答案正確。回答品質與回答了多少問題，需要分開評估。
 
 ## 中文提示
 

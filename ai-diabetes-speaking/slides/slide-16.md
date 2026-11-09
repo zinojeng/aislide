@@ -4,17 +4,11 @@
 
 This case starts with a total insulin dose of 80 units per day. The team uses the clinical information to plan the starting pump settings. These calculations belong to this case. They are not settings for every patient, and they need review as glucose and insulin needs change.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-In this case, the team used 80 percent of that amount as a starting estimate. Eighty times 0.8 gives 64 units. Twenty percent of 64 gives 12.8 units for basal insulin. Dividing by 24 gives about 0.53 units per hour.
+These starting settings were chosen for this case. The team then used follow-up glucose data to review the plan.
 
-These are choices made for this case. They are not rules for every pregnant patient.
-
-The sensitivity estimate is 1800 divided by 64, or about 28 milligrams per deciliter per unit. The carbohydrate ratio is 400 divided by 64, or about 6.25 grams per unit. Please keep the units clear. These two numbers mean different things.
-
-The slide also lists a two-hour active insulin time, or AIT. This is a setting used by the system. It does not mean insulin stops working after two hours. A shorter AIT may lead to more correction insulin.
-
-The manual basal setting is also different from SmartGuard automatic basal delivery. We need to know which mode is running. The starting formula is only the beginning. Follow-up data are needed to judge the settings.
+這些初始設定是針對此案例選擇的。之後仍需依追蹤血糖資料檢視計畫。
 
 ## 中文提示
 

@@ -4,17 +4,11 @@
 
 Uploading a guideline is only the first step. We need to keep its source, date, and clinical context. The text should be divided into useful sections without losing important limits. This makes it easier to find the right information and check where an answer came from.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-This picture uses a conveyor belt to show the process. First, clean the text. Remove repeated page headings and check errors from scanned pages. Then keep the sections, recommendations, tables, and notes in a clear order.
+Keep table headings and notes with the numbers. A correct number can give the wrong message if its context is missing.
 
-Tables are especially important. Imagine that the system finds a treatment number but loses the row saying which patients it applies to. The number may be correct, while the advice is wrong for the patient.
-
-We therefore need to keep the table heading and notes with the data. Different documents may need different methods. Cutting every page into equal pieces may not work well.
-
-Next, add the source, date, and patient group. When a guideline changes, the system should know which version to use.
-
-Finally, check the prepared content. Look closely at numbers and words such as “not.” A missing “not” can reverse the meaning. Good source preparation reduces errors, but the final answer still needs checking.
+數字要保留表格標題與註解。缺少背景時，正確數字也可能造成錯誤解讀。
 
 ## 中文提示
 

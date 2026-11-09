@@ -4,17 +4,11 @@
 
 A meal photo can help us start a food record. AI can name foods and estimate the amount. But the photo may miss cooking oil, ingredients, or food left on the plate. The patient should check the record before we compare it with glucose data.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-Writing down every meal takes effort. This slide shows a simpler way to start. The patient takes a photo and adds a short voice message. For example: “I ate chicken, rice, and vegetables. I ate half the rice.”
+A photo may not show how much food the patient ate. A short voice message can add details, such as extra sauce or leftover rice.
 
-The photo shows what the food looks like. The voice message adds details that the photo cannot show. Was the drink sweetened? Did the patient finish the meal? Was there extra sauce?
-
-AI can put these details into clear fields, such as food name, portion, carbohydrate, and calories. A portion means the amount of food. The patient or dietitian then checks the record.
-
-The numbers on this slide are examples. A photo does not measure carbohydrate with perfect accuracy. A deep bowl may hold much more rice than a shallow bowl.
-
-The useful result is a record we can correct and connect with glucose data. We should not use an unconfirmed photo estimate by itself to decide an insulin dose.
+照片不一定能看出病人實際吃了多少。簡短語音可以補充醬料或剩下的飯量。
 
 ## 中文提示
 

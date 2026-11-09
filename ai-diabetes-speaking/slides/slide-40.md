@@ -4,19 +4,11 @@
 
 This diagram shows the full teaching workflow. Videos, audio, and images enter the process. AI tools help organize the material, and learning resources come out at the end. Each step needs a clear purpose and a check before the result is shared.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The value is not only speed. We want a process that we can repeat, check, and update.
+Keep a link from each output to its source. This helps us find and update old teaching material when the source changes.
 
-Different tools may do different jobs. One may prepare text. Another may make audio. Another may match the slides. If we replace a tool, we still need to test that the next step works properly.
-
-Every output should show which source and version it used. Suppose a research paper is corrected. We need to find the summary, questions, and videos that used the old result.
-
-If we can only update the main page but cannot find the videos, the process is still hard to maintain.
-
-The user may see a simple page. Behind that page, the links between sources and outputs need to stay clear.
-
-As we move from research to patient education, we can make the language easier. But the important conditions and limits must remain. That is how this process can support teaching over time.
+每份產出都應連回原始來源。來源更新時，才能找出並修正舊教材。
 
 ## 中文提示
 

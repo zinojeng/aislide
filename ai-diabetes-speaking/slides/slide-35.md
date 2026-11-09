@@ -4,19 +4,11 @@
 
 A search tool should match the questions clinicians ask. Users may search by disease, drug, patient group, or clinical problem. The results should lead back to the source. Finding a matching term is only the first step; we still need to read the study's meaning and limits.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-We may not remember the exact title of a talk. The system should therefore keep the original title and add clear topic labels. Common everyday words and medical terms should lead to useful results.
+Test the search with a real clinical question. A page with the same drug name may still be about the wrong patient group.
 
-We also need to keep different types of records separate. A meeting session may contain several talks. The chair of a session may not be the author of a study. A talk is not always the same as a published paper.
-
-Dates and times also need care, especially when meetings use different time zones.
-
-To test the search, use a real question from your clinic. For example, try to find a trial in a particular patient group. Then check whether the results really match the question.
-
-If there are too many results, useful filters can narrow them. If nothing is found, the system should say that its collection may be incomplete.
-
-The goal is to help the user find relevant evidence, not just a page containing the same drug name.
+用真實臨床問題測試搜尋。同樣提到某種藥物的頁面，仍可能討論不同病人族群。
 
 ## 中文提示
 

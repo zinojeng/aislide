@@ -4,17 +4,11 @@
 
 Patients and guidelines may use different words for the same problem. A search system can combine exact words with similar meanings. This may help it find useful information. We still need to check whether the result fits the question before using it in an answer.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-This slide combines several ways to search. One method looks for similar meaning. Another looks for exact words, such as a drug name or a lab test. A prepared set of common questions can help with frequent topics. Source labels help select the right patient group and document date.
+Patients and guidelines may use different words for the same idea. Searching by both meaning and exact terms can help find useful sources.
 
-Why use more than one method? A search based only on similar meaning may find advice for the wrong group. Pregnancy advice and advice for an older adult may contain similar words but have different goals.
-
-The system should first confirm the patient's situation. It should then select sources that fit. If two guidelines disagree, we need to keep that difference visible. We should not force them into one certain answer.
-
-Also, several websites may copy the same study. That still counts as one study, not several separate pieces of evidence.
-
-The goal of the search is a small set of useful sources that we can check. Better search gives the model a stronger starting point for its reply.
+病人與指引可能用不同詞語表達同一件事。結合意思與精確詞彙搜尋，有助找到適合的來源。
 
 ## 中文提示
 

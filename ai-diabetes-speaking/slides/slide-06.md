@@ -4,17 +4,11 @@
 
 This workflow connects food records with CGM data. The patient takes a photo, checks the food, and saves the meal time. We then compare the meal with the glucose curve. Putting these records together helps the care team ask more useful questions.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The table on the left shows one way to store the information. Google Sheets can help organize records. The table alone, however, is not a complete clinical care system.
+The photo time may differ from the meal time. We need the actual meal time to match the food record with the glucose curve.
 
-The most important detail may be the time. The photo time, meal time, and insulin time can be different. A patient may take a photo at noon and eat at one o'clock. If we use noon as the meal time, our explanation of the glucose rise may be wrong.
-
-We also need to know whether the patient finished the food. A photo of a full plate does not tell us how much was eaten.
-
-The glucose chart helps us find times worth reviewing. An AGP chart combines many days. It cannot prove that one meal photo caused one part of that chart. We should return to the matching day and check the details.
-
-Once the records line up correctly, AI can help the team ask better questions. The value comes from clearer information, not just a more colorful chart.
+拍照時間可能不同於用餐時間。需要實際用餐時間，才能對照飲食紀錄與血糖曲線。
 
 ## 中文提示
 

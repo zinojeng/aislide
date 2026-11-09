@@ -4,17 +4,11 @@
 
 This safety table comes from the 12-week trial. Read it alongside the HbA1c result. Check the number of people, the event definitions, and how long they were followed. If no events were observed, we should say that clearly. It does not mean the treatment has no risk.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-Any adverse event was reported in sixteen people in the control group and thirteen in the app group. That is about 13 percent and 10.2 percent. The difference was not statistically clear. We should not call the app safer based only on these numbers.
+No severe low-glucose event was seen in either group. This does not mean the risk is zero, especially in a short study.
 
-Neither group had an observed severe low-glucose event. Severe hypoglycemia means an event in which the person needs help from someone else. It is not the same as every reading below 54 milligrams per deciliter.
-
-The table separately counts low readings per thousand measurements. The values are about 1.2 and 1.1. Notice the unit: measurements, not patients and not years of follow-up.
-
-High readings above 250 were less frequent in the app group in the numbers shown. We still need to consider the uncertainty of that comparison.
-
-The study did not find a clear increase in risk. That is useful. But a short study with few events cannot rule out every risk. Education, follow-up, and a way to report problems remain important.
+兩組都沒有觀察到嚴重低血糖，但不代表風險為零，尤其研究追蹤時間較短。
 
 ## 中文提示
 

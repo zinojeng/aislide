@@ -4,17 +4,11 @@
 
 Today, I will show how AI can help with diabetes care. It can bring meal photos, glucose data, and patient questions together. Our goal is to make daily work easier. The care team still checks the information and makes treatment decisions.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-In daily practice, we receive many kinds of information. We see glucose numbers, meal photos, insulin records, and questions from patients. These often arrive at different times and in different places. We spend a lot of time putting them together.
+AI can bring meal photos and glucose records together. The care team checks the result before making a treatment plan.
 
-Please look at the picture on the right. It shows a glucose value of 156 and a time in range of 68 percent. These numbers are examples. They are not results from a clinical study. The idea is to turn a long list of numbers into a short, useful explanation.
-
-For example, AI may notice that glucose often rises after lunch. It can ask us to review lunch, insulin timing, and activity. It cannot know the cause from the glucose line alone.
-
-Our goal is to make records easier for patients and easier for the care team to review. The team still checks the information and makes treatment decisions.
-
-As you listen, think about one task in your own clinic. Which task takes too much time? We can start with one small problem and see whether AI really helps.
+AI 可以整合餐點照片與血糖紀錄。醫療團隊會先確認結果，再決定治療計畫。
 
 ## 中文提示
 

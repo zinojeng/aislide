@@ -4,19 +4,11 @@
 
 Insultrate supports changes in basal insulin, the background insulin used across the day and night. Patients record glucose and follow a care plan for dose changes. The tool helps organize the process. Clear instructions, safety checks, and follow-up remain part of the service.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The clinician sets the plan. The patient enters fasting glucose readings. The tool follows the planned rules and gives a dose suggestion. The patient records the dose used, and the team can review progress.
+Keep the suggested dose and the dose actually taken separate. A number on the screen does not prove that the patient used it.
 
-This is different from asking a general chatbot to invent a dose. A dose-adjustment tool needs clear rules and a defined care process.
-
-Let us follow one day's record. Was the glucose truly fasting? Was the number entered correctly? Did the patient take the suggested dose? If any of these details are wrong, the next suggestion may be based on the wrong information.
-
-It helps to keep three things separate: the suggested dose, the patient's confirmation, and the dose actually taken. A suggestion on the screen does not prove that it happened.
-
-Patients also need to know when to stop and contact the team. Staff need to know who will review problems.
-
-The value of the tool is a clear path between visits. We should be able to look back and understand why each suggestion was made and what happened after it.
+建議劑量與實際使用劑量應分開記錄。螢幕顯示的數字，不代表病人真的使用了。
 
 ## 中文提示
 

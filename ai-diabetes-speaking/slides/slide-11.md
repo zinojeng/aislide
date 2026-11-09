@@ -4,17 +4,11 @@
 
 A language model can turn a difficult question into a clear explanation. But its memory should not be our only source of medical facts. We need reliable sources and a review process. The goal is to help the care team explain and check information more easily.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-On the left, a question goes straight to the model. The model may give a correct answer. It may also use old information or invent a reference. A clear and confident reply can still be wrong.
+A confident answer can still be wrong. We should check its source, date, and whether it fits this patient.
 
-On the right, the model first connects with a checked collection of medical sources. The slide calls this the Medical Vault. The model finds relevant information and explains it in language the patient can understand.
-
-This gives us a way to check where the answer came from. We can see the source and its date. We can also ask whether it fits this patient.
-
-Even this process can make mistakes. The search may choose the wrong page. A table note may be missing. The model may say more than the source supports.
-
-So the main question is not only, “Does this answer sound good?” We should also ask, “What is it based on, and does it fit this situation?” That is the key message of this slide.
+語氣肯定的答案仍可能錯誤。應確認來源、日期，以及是否適用於這位病人。
 
 ## 中文提示
 

@@ -4,17 +4,11 @@
 
 Automated insulin delivery, or AID, is different from a chatbot. A chatbot writes replies. An AID system uses glucose data and its own rules to adjust insulin delivery. This MiniMed 780G example helps us discuss how the device works and why careful follow-up remains important.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The next case involves a woman with type 2 diabetes at about twenty weeks of pregnancy. Type 2 diabetes that was present before pregnancy is different from GDM diagnosed during pregnancy.
+Pump use still needs teaching and follow-up. This pregnancy case shows one patient's care, not a plan for every patient.
 
-The pump does not remove the need for teaching and follow-up. The patient still needs to understand meal entries, alerts, and what to do when something goes wrong. The care team needs to review settings and glucose patterns.
-
-Pregnancy also uses different glucose goals. We should not apply the usual adult range of 70 to 180 to every pregnancy report. The range of 63 to 140 is often used for pregnancy CGM. The percentage goals and evidence still depend on the type of diabetes.
-
-We will discuss this as one supervised clinical case. It is not proof that the same device and settings fit every pregnant patient. Device approval and local rules also need checking.
-
-With that background, let us look at how the starting settings were estimated.
+使用幫浦仍需要教學與追蹤。這個懷孕案例呈現一位病人的照護，不能直接套用到所有人。
 
 ## 中文提示
 

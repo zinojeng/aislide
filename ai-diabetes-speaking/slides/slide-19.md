@@ -4,17 +4,11 @@
 
 This slide shows how patients and clinicians felt about a digital insulin tool. Their feedback can help us improve the service. But a survey measures what people report. It does not directly prove that work time fell or that glucose control improved.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-This slide shows survey responses from both groups. Many clinicians felt that the tool reduced phone contact, made dose adjustment easier, or gave a better view of the patient's condition. Patients reported better understanding and more confidence in handling insulin.
+Survey answers tell us how users feel. They do not directly measure time saved or better glucose control.
 
-These are useful findings, but we must read the percentages correctly. If 70 percent of respondents say a task feels easier, it does not mean that the task takes 70 percent less time. It also does not prove better glucose control.
-
-We should ask who answered the survey. Did people who stopped using the tool also respond? Their experience may be different.
-
-In our own clinic, we can compare feelings with real work records. Count the calls and messages. Measure the time needed to handle them. Ask whether patients understand when they should contact the team.
-
-The tool may make the treatment plan clearer. That is worth studying. But improved trust, lower workload, and better glucose are separate outcomes. We should measure each one.
+問卷反映使用者的感受，不能直接代表節省多少時間，或血糖改善多少。
 
 ## 中文提示
 

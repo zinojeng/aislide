@@ -4,19 +4,11 @@
 
 Before interpreting a CGM report, check the numbers and units. Add the low-glucose groups together when reporting total time below range. Do the same for high glucose. A coefficient of variation of 0.41 means 41 percent. GMI is an estimate, not a laboratory HbA1c result.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-Their percentages are 0.15, 3.50, 61.28, 20.21, and 14.86. Together, they add up to 100 percent.
+Add both low-glucose groups to get total time below range. GMI is based on sensor data and is different from a lab HbA1c result.
 
-To find all time below range, we add the two low groups. The answer is 3.65 percent. To find all time above range, we add the two high groups. That gives 35.07 percent. Using only the high group would miss the very high readings.
-
-The report also shows a CV of 0.41. CV describes how much glucose varies. Here, 0.41 means 41 percent. It does not mean 0.41 percent.
-
-GMI means glucose management indicator. It is based on sensor glucose. It is not the same as a laboratory HbA1c result. GRI is another risk measure, not a percentage of time.
-
-These checks are good tasks for a computer program. The language model can then explain the checked results.
-
-The totals do not tell us when the lows happened. To answer that question, we need the time chart and the daily records.
+將兩個低血糖區間相加，才是總低於範圍時間。GMI 來自感測器資料，不等於抽血測得的 HbA1c。
 
 ## 中文提示
 

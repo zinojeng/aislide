@@ -4,19 +4,11 @@
 
 Better glucose results must be considered together with safety. This table shows low-glucose events. We should check how each event was defined and counted. Severe hypoglycemia means the person needs help from someone else. It is not defined by a glucose number alone.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-One result concerns low glucose at night, at or below seventy milligrams per deciliter. The rates shown are about 0.26 and 1.15 events per person-year.
+One person may have several low-glucose events. The number of events and the number of people affected are different measures.
 
-A person-year combines the number of people and their follow-up time. It is different from the number of people who had an event. It is also different from the total number of events.
-
-For example, one person may have several low-glucose events. That adds several events, but only one person to the number affected. Both views are useful.
-
-A difference in one category does not prove that every type of low glucose improved. Also, no clear difference in another category does not mean there is no risk. The study may have too few events to give a clear answer.
-
-How we measure glucose also matters. More frequent checks may find more lows. We should understand the measurement and reporting process before comparing groups.
-
-The main message is to review benefit and risk together. HbA1c alone is not enough to judge whether a tool improves care.
+一個人可能發生多次低血糖。事件次數與發生低血糖的人數，是不同指標。
 
 ## 中文提示
 

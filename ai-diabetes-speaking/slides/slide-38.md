@@ -4,19 +4,11 @@
 
 This workflow uses both a written summary and the original slide images. The text tells the main story. The images keep details that a summary may miss, such as chart labels and units. Using both helps us check the explanation, but it does not remove the need for review.
 
-## Optional explanation
+## Optional explanation · 延伸說明（選用）
 
-The text helps organize the explanation. The images show the lines, labels, tables, and small notes. Together, they give the tool more of the original information.
+Text explains the story, while images preserve the charts. If they disagree, return to the original source.
 
-We can ask NotebookLM or another tool to check important charts and values. But the request itself does not prove that the tool read them correctly.
-
-For example, a survival curve needs more than a quick look at two lines. We also need the follow-up time and the number of people still being followed.
-
-If the text and the image disagree, we should stop and check the source. The model should not simply choose the version that sounds better.
-
-Using both inputs can reduce missing information. It cannot promise that every later answer will be correct.
-
-The final teaching material should still point back to the source. This lets the teacher check a key statement and helps the team update the material when new information appears.
+文字說明重點，圖片保留圖表資訊。兩者不一致時，應回頭核對原始來源。
 
 ## 中文提示
 
