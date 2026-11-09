@@ -1,24 +1,21 @@
-# AI 糖尿病演講｜英文練習室
+# AI Diabetes — Simple English Practice
 
-51 頁，依最後一版「中文＋Simple English」備忘錄製作。新增中文重點、簡單英文重點句、L/R、A 與尾音練習。保留原稿的數字與限制。
+51 張投影片，各自一段短英文。英文在前，中文提示在後。每頁約 40–60 個英文單字，純朗讀約 20–45 秒（依語速而異）；已取消原先每頁 3–5 分鐘的長篇安排。
 
-- [完整最後一版中英講稿](speaker-notes-latest.md)
-- [逐頁練習合併版](practice-guide.md)
-- [發音總指南](pronunciation-guide.md)
-- [Cloudflare 部署說明](CLOUDFLARE.md)
-- 網頁程式位於 `dist/`。GitHub 檔案預覽不會執行語音程式；請部署後使用，或下載整個資料夾開啟 `dist/index.html`。
+- [純英文講稿：51 頁](english-only.md)
+- [英文優先＋中文提示](speaker-notes-latest.md)
+- [英文講稿＋發音練習](practice-guide.md)
+- [L／R、A、尾音指南](pronunciation-guide.md)
+- [原長版中英講稿](archive/long-version-speaker-notes-latest.md)
+- [Cloudflare 部署設定](CLOUDFLARE.md)
 
-網頁包含：51 頁選單、中文重點、完整英文逐句播放、0.6×／0.75×／0.9×／1×／1.1×、聲音選擇、句子重複、跟讀間隔、中文講稿、發音提示、練習進度（僅本機儲存）。速度是語音引擎的相對設定，不同聲音的實際速度不同。
+網頁在 `dist/`：每頁先顯示短英文，可逐句播放、調整速度、重複跟讀。中文提示和發音練習放在後面。語音由裝置提供，非預製 MP3。GitHub 的檔案頁不會執行語音功能；需部署網站，或下載後開啟 dist/index.html。
 
-此版使用瀏覽器語音合成，沒有預製 MP3；只朗讀英文正文，不朗讀舞台指示或來源。錄音與發音評分未納入此版。專有名詞請搭配字典／真人示範。
+Cloudflare 上次登入失敗，尚未確認公開部署成功。此更新同步的是網站原始碼。
 
-原始簡報：[中文＋Simple English 講稿版](https://chatgpt.com/space/page_52d618245a7081919ed107dd27d888ea)。本網站提供講稿練習，不含原投影片圖片。
+## Slides
 
-每頁 3–5 分鐘的原安排含看圖與互動；純英文朗讀通常短於此時間。
-
-## 逐頁目錄
-
-| Slide | 主題與練習頁 | 這頁在說什麼 |
+| Slide | English script | 中文重點 |
 | --- | --- | --- |
 | 01 | [Generative AI in Diabetes Management](slides/slide-01.md) | 從零散資料到臨床理解；畫面數字是示意。 |
 | 02 | [Outline](slides/slide-02.md) | 六個主題及其順序。 |

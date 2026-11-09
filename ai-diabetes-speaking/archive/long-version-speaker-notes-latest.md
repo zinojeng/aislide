@@ -1,0 +1,2567 @@
+# Generative AI in Diabetes Management — 最後一版中英講稿
+
+來源：2026-11-09 讀取 Simple English 簡報，51 頁。原稿照錄；新增教練內容另列於各頁練習稿。
+
+## SLIDE 01 — Generative AI in Diabetes Management
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+各位專家、同道，大家好。很高興今天在北京與大家交流生成式 AI 在糖尿病管理中的應用。我想從我們每天的診間工作出發：血糖曲線、飲食照片、胰島素紀錄與病人的提問，常常分散在不同地方。資訊雖然很多，真正理解病人的時間卻很有限。
+請看右側的示意畫面。當前血糖 156 mg/dL、TIR 68%，以及下方的 AI 洞察，展示的是一種可能的工作方式。這些是示意數字，不是已驗證的個案療效。LLM 可以把數字整理成清楚的臨床敘述，例如提示午後偏高，並建議回顧午餐與活動。但它不能只憑曲線就確定原因，也不能代替我們確認低血糖與用藥情境。
+今天的重點，是讓患者更容易記錄、讓團隊更容易掌握問題，再由專業人員完成判斷。我們會從飲食、溝通與臨床支持，延伸到報告產出與醫學教育。請各位帶著一個自己的工作困擾來聽，思考哪個環節值得先做一個可評估的小型試辦。
+
+【延伸說明】
+以門診為例，病人可能先在通訊軟體傳照片，回診時才補充那天沒有吃完。如果系統只把照片轉成熱量，醫師仍然需要重新問一次。比較有用的設計，是保留病人修正的內容，並把尚未確認的問題集中呈現。我們期待節省的是重複整理的時間，而不是省略理解病人的過程。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果只能改善一項工作，你會選擇減少重複衛教、加快報告整理，還是提高追蹤完成率？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Outline」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Good morning, everyone. Thank you for joining us. Today, I will talk about how generative AI can help us care for people with diabetes.
+
+In daily practice, we receive many kinds of information. We see glucose numbers, meal photos, insulin records, and questions from patients. These often arrive at different times and in different places. We spend a lot of time putting them together.
+
+Please look at the picture on the right. It shows a glucose value of 156 and a time in range of 68 percent. These numbers are examples. They are not results from a clinical study. The idea is to turn a long list of numbers into a short, useful explanation.
+
+For example, AI may notice that glucose often rises after lunch. It can ask us to review lunch, insulin timing, and activity. It cannot know the cause from the glucose line alone.
+
+Our goal is to make records easier for patients and easier for the care team to review. The team still checks the information and makes treatment decisions.
+
+As you listen, think about one task in your own clinic. Which task takes too much time? We can start with one small problem and see whether AI really helps.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which task in your clinic would you like to make easier?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：01。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_01.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 02 — Outline
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+今天沿著六個主題展開。第一是多模態飲食分析，把照片與語音轉成可以核對的結構化紀錄。重點是降低記錄負擔，並保留份量與食物辨識的不確定性。第二是 Chatbot 與 CGM 溝通，讓患者在兩次門診之間更容易取得教育資訊與回報資料。自動回覆可以延長服務可及性，但不代表醫療人員全天即時監看，也不能保證沒有錯誤。
+第三與第四部分是自動化胰島素輸注，以及 AI 輔助劑量調整。我們會看 780G 的孕期第二型糖尿病個案，說明起始參數的思考與後續追蹤；同時區分設備控制演算法、規則式滴定工具與生成式模型。它們需要不同的證據與管理方式。
+最後兩部分是臨床報告與醫學教育。前者把大量 CGM 資料整理為可覆核的摘要，後者把會議影音與文獻轉成不同受眾需要的教材。六個主題可以共享資料管理與來源追溯的原則，但不能因此假設所有工具已完成整合或臨床驗證。接下來從最貼近患者日常的飲食記錄開始。
+
+【延伸說明】
+可以把今天的內容想成兩條路徑。病人端從記錄與提問開始，醫療端從資料整理與解讀開始，兩者在照護決策處相遇。每走到一個新主題，我們都可以問：輸入是什麼、輸出給誰、誰確認結果？這三個問題能幫助我們分辨展示功能與真正可用的服務。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：你的單位目前最接近大綱中的哪一項？下一步缺的是資料、流程，還是負責的人？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Multimodal Meal Analysis and Structured Output」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This talk has six parts. Let me briefly explain how they fit together.
+
+First, we will look at meal photos and voice records. AI can help turn them into a food record. The patient still needs to check the food and the amount eaten.
+
+Second, we will look at chatbots. A chatbot can answer common questions and collect information between clinic visits. An automatic reply does not mean that a doctor is watching all the time.
+
+Third, we will discuss automated insulin delivery, or AID. We will use a pregnancy case to explain pump settings and follow-up. Fourth, we will look at tools that support insulin dose changes. A pump control system, a dose-adjustment app, and a language model are different tools. They need different types of testing.
+
+Fifth, we will see how AI can help write CGM reports. CGM means continuous glucose monitoring. Finally, we will discuss medical education. AI can help turn a meeting video or a research paper into teaching material.
+
+For each part, I will ask the same practical questions. What information do we need? What does the tool do? Who checks the result? These questions help us decide where a tool may fit in real care.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which of these six areas is most useful for your team?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：02。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_02.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 03 — Multimodal Meal Analysis and Structured Output
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+在談 AI 飲食分析前，先看一個常見困難：我們有很完整的 CGM 曲線，卻缺少能解釋波動的生活紀錄。午後的高峰，可能與餐食、用藥時間或活動有關；單靠曲線不能把原因分清楚。要求患者再手寫一本飲食日誌，又會增加負擔。
+這張展示的解法，是把餐盤照片和語音一起使用。患者拍下雞胸肉、糙米飯與蔬菜，再補一句自己吃了哪些、吃了多少。影像提供食物外觀，語音補充照片看不到的內容，例如飲料是否加糖、食物是否吃完。系統將兩者整理成食物名稱、估計份量、碳水與熱量等欄位，再由患者或營養師確認。
+畫面上的碳水 45 克等數字，是結構化報告的示例；它們不是只靠照片就能達到的精確量測。營養資料庫可以協助換算，但資料庫、實作與驗證仍需確認。我們要建立的是可修正的紀錄流程，讓飲食事件能與血糖時間軸對齊，而不是讓一張照片直接成為劑量決策的依據。
+
+【延伸說明】
+例如同樣一碗飯，深碗與淺碗的照片可能很接近，實際份量卻不同。可以請病人選擇大約吃了多少，或補充容器尺寸，再讓系統更新估計。資料表中應保留原始照片、估計值與病人確認值，這樣營養師才知道哪一部分可以信任，哪一部分需要重新詢問。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：同一張便當照片，如果不知道飯碗深度與飲料含糖量，哪些欄位應該保留為待確認？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Google Gemini Pro Meal Assessment」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+We often have a clear glucose chart but an incomplete food record. We can see a rise after lunch, but we may not know what the patient ate. We may also be missing the insulin time or activity record.
+
+Writing down every meal takes effort. This slide shows a simpler way to start. The patient takes a photo and adds a short voice message. For example: “I ate chicken, rice, and vegetables. I ate half the rice.”
+
+The photo shows what the food looks like. The voice message adds details that the photo cannot show. Was the drink sweetened? Did the patient finish the meal? Was there extra sauce?
+
+AI can put these details into clear fields, such as food name, portion, carbohydrate, and calories. A portion means the amount of food. The patient or dietitian then checks the record.
+
+The numbers on this slide are examples. A photo does not measure carbohydrate with perfect accuracy. A deep bowl may hold much more rice than a shallow bowl.
+
+The useful result is a record we can correct and connect with glucose data. We should not use an unconfirmed photo estimate by itself to decide an insulin dose.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What important food detail is missing from a photo?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：03, 06。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_03.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 04 — Google Gemini Pro Meal Assessment
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張展示以 Google Gemini Pro 與 Streamlit 建立的飲食評估原型。患者上傳早餐照片後，系統嘗試辨識食物，估算能量，並產生容易理解的營養說明。原稿把碗內食物描述為紫米粥，目前英文畫面則寫 rice drink，正好提醒我們：食物名稱首先就需要使用者確認。
+我們可以用這份早餐討論一個常見問題：看起來是全穀類，是否就能推論餐後血糖一定較平穩？答案還取決於食物處理方式、份量、添加糖與整餐搭配。照片可以提供線索，卻不能測量一碗粥的 GI。原型曾給出 GI 70、50 等估計，也曾將蛋與油標示為零；這些不應被當作經實驗測得的數值，更不能解讀為可以不限量食用。
+這項工具的價值在於用餐前提供一次可討論的衛教機會，例如確認主食份量、飲品成分，以及如何增加餐食資訊的完整度。最適當的回饋是提出清楚問題與合理選項，再讓患者與照護團隊確認，而不是用一個看似精確的數字判定整餐安全。
+
+【延伸說明】
+這張的早餐可以拿來示範：飲料是無糖豆漿、奶茶還是其他品項，會影響估計；但外觀未必能分辨。最好的下一步可能是一個簡短問題，而不是立刻給出精確數字。當模型願意表達不確定，病人才有機會補足資料，也比較不會把估計當成實際量測。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果模型把無糖豆漿認成含糖米漿，你希望介面如何讓病人立即更正？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Paired Glucose Testing and Dietary Education」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide shows a small meal-assessment app made with Google Gemini Pro and Streamlit. The user uploads a breakfast photo. The app tries to name the foods and estimate their calories.
+
+There is already a useful lesson here. The original description calls the food in the bowl purple rice porridge. The English picture calls it a rice drink. We should ask the user which one is correct.
+
+Many patients ask whether whole-grain food is always better for glucose. The answer depends on more than the name. Cooking, portion size, added sugar, and the other foods in the meal all matter.
+
+The glycemic index, or GI, describes how a food affects glucose under test conditions. A photo cannot measure the GI of this breakfast. Numbers such as 70 or 50 in an AI reply are estimates, not measured results. A zero label for egg or oil also does not mean that any amount is suitable.
+
+The app can still help us start a useful conversation before the meal. We can check the rice portion and the drink ingredients. We can explain what is known and what still needs checking. That is more useful than giving one exact-looking number and calling the whole meal safe.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What would you ask the patient before accepting this food estimate?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：04。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_04.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 05 — Paired Glucose Testing and Dietary Education
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+有了飲食紀錄，下一步就是配對血糖監測。把餐前與餐後讀值、餐食內容及用藥時間放在一起，患者比較容易理解自己的反應。若採餐後兩小時量測，必須確認從何時開始計時，不能把不同間隔的數據直接混比。
+請看右側的餐盤紀錄。第一個例子血糖由 83 上升至 134 mg/dL，差值為 51；另一餐由 88 到 108，差值為 20。這些都是可以計算的觀察，但較大的上升幅度不等於一定危險，也不能單憑兩餐差異證明某一種食物造成全部變化。畫面中的碳水與熱量可協助討論，仍要確認份量、量測時間、活動與胰島素。
+我們可以把衛教問題改成：「同樣的用餐情境下，調整哪一項最容易觀察？」例如先回顧飲料或主食份量，再看多次配對結果。這樣患者看到的是自己的食物與自己的血糖，醫師則能把圖表變成具體對話。目標是找到可持續的選擇，而不是用單次結果貼上好食物或壞食物的標籤。
+
+【延伸說明】
+可以請病人先選一個願意改變的小項目，例如含糖飲料或主食份量，再在相近情境下觀察。若同時改變運動、藥物與整餐內容，就很難知道哪個因素影響最大。配對量測的目的，是讓衛教變成可理解的個人經驗，而不是用單次結果判定某種食物永遠不能吃。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：兩次吃相同便當，餐後血糖不同；你會先追問哪兩個條件？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Meal Records and CGM Integration」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Paired glucose testing means looking at glucose before and after a meal. We also record the food and insulin timing. This helps patients understand their own response.
+
+If we use a reading two hours after eating, we need to agree when the clock starts. Readings taken at different times should not be compared as if they were the same.
+
+Look at the meals on the right. In one example, glucose rises from 83 to 134. That is a rise of 51 milligrams per deciliter. In another example, it rises from 88 to 108. That is a rise of 20.
+
+These are useful observations. But a larger rise is not always dangerous. We also cannot say that one food explains the whole difference. The starting glucose, insulin, activity, and amount eaten may be different.
+
+A good teaching approach is to choose one small change. For example, the patient may change a drink or a rice portion. We then review several meals under similar conditions.
+
+This makes the discussion personal. The patient sees their own food and their own glucose. Our goal is to find choices they can keep using, rather than label a food good or bad after one meal.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What else could explain the difference between these two meals?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：05。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_05.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 06 — Meal Records and CGM Integration
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這一頁把前面的流程接起來：拍照、辨識、結構化儲存，再把飲食資料帶入 CGM 解讀。患者不必在多個地方重複輸入，團隊也能在同一個時間軸上回顧生活事件。Google Sheets 在這裡示範的是一個可整理與查詢的資料表，不代表單靠試算表就已完成整個臨床系統。
+照片上傳後，系統可以整理食物名稱、估計熱量與三大營養素；再由使用者補充吃了多少、什麼時候開始吃。最重要的是分清拍照時間、用餐時間與輸注時間。三者若相差一小時，即使圖表看起來對齊，解讀仍可能錯誤。
+下方的 CGM 圖可以幫助找出值得回顧的時段，但多天疊加的 AGP 不能直接證明某一張餐盤照片造成某個高峰。我們應先回到對應日期的逐日曲線，再檢查紀錄是否完整。完成這種對齊後，AI 才能協助產生有依據的問題，讓營養衛教與用藥討論更有效率。
+
+【延伸說明】
+假設照片在十二點拍攝，但病人一點才真正用餐，直接把照片時間對上 CGM 就會產生錯誤推論。實務上可用簡單欄位分開記錄拍照、開始吃飯與用藥時間。先處理時間對齊，往往比增加更複雜的分析模型更能改善報告品質。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：要把一餐與血糖曲線可靠連結，除拍照時間外，你還需要哪個時間點？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「LINE Chatbot and Patient Communication」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide brings the meal record and glucose record together. The steps are simple to describe: take a photo, check the food, save the record, and compare it with CGM data.
+
+The table on the left shows one way to store the information. Google Sheets can help organize records. The table alone, however, is not a complete clinical care system.
+
+The most important detail may be the time. The photo time, meal time, and insulin time can be different. A patient may take a photo at noon and eat at one o'clock. If we use noon as the meal time, our explanation of the glucose rise may be wrong.
+
+We also need to know whether the patient finished the food. A photo of a full plate does not tell us how much was eaten.
+
+The glucose chart helps us find times worth reviewing. An AGP chart combines many days. It cannot prove that one meal photo caused one part of that chart. We should return to the matching day and check the details.
+
+Once the records line up correctly, AI can help the team ask better questions. The value comes from clearer information, not just a more colorful chart.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which time should we use to connect a meal with its glucose response?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：06, 03。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_06.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 07 — LINE Chatbot and Patient Communication
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+有了專業端的資料整理，還需要一個患者願意使用的入口。這裡選擇 LINE，是因為即時通訊已經在許多人的日常生活中；在其他場域，也可以評估適合當地使用習慣的平台。重點是減少安裝與學習負擔，讓回報血糖、飲食與提問更容易。
+手機畫面展示的是對話式服務的概念。患者傳來 156 mg/dL，系統可以先確認量測情境，再回顧相關資料，以容易理解的語言回覆。若沒有連續監測資料，就不能從幾個手動讀值算出可靠的 CGM TIR；若沒有午餐紀錄，也不能直接斷言是糙米飯吃多了。
+LLM 的優勢是把專業語言轉成具體、可理解的下一步，例如請患者補充量測時間與症狀，或回顧一餐的份量。服務可以提供自動教育回覆，但應清楚說明人工查看時間與緊急求助路徑。患者感到被支持，應來自清楚資訊與實際可用的照護安排，而不是誤以為團隊正在全天監看。
+
+【延伸說明】
+我們可以讓一般飲食問題在對話中完成，但症狀訊息需要不同處理。例如病人說現在很不舒服，系統不應繼續進行長篇衛教。服務應依團隊事先訂好的規則，引導至適當的即時協助，並清楚告知訊息是否有人正在查看。這是服務設計的一部分。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果病人半夜傳「冒冷汗但沒有量血糖」，系統應如何區分衛教回覆與需要立即求助的訊息？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Observational Data from a GDM Chatbot」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Patients need an easy way to contact the care team. This example uses LINE because many people already use it every day. In another setting, a different messaging app may fit better.
+
+A familiar app can make it easier to send a glucose reading, a meal photo, or a question. Patients do not have to learn a completely new system.
+
+Suppose a patient sends a glucose value of 156. The chatbot should first ask about the situation. Was this before or after a meal? Are there symptoms? What other records are available?
+
+A few finger-stick readings cannot give us a reliable CGM time in range. Also, a high reading after lunch does not prove that the patient ate too much rice.
+
+AI can help explain medical ideas in everyday language. It can also ask for missing details. The reply should be short enough to read and clear enough to use.
+
+We must explain when staff check messages and where patients should seek urgent help. An automatic reply is not the same as a doctor being present all day and night. Patients should feel supported because the care process is clear and useful.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How would you explain the service hours to a patient?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：07。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_07.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 08 — Observational Data from a GDM Chatbot
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+在設計機器人之前，我們先問：孕婦回到家後，最常需要什麼資訊？Sagstad 等人研究 GDM 聊天機器人 Dina，分析了 610 段對話、2,838 個問題。其中血糖、GDM、飲食與活動占 58.81%。這些內容正是門診已經說明、但患者在日常情境中仍需要再次確認的問題。
+研究報告機器人能回答 88.51% 的提問。這是回答涵蓋率，不能改稱為醫療正確率，也沒有證明同樣比例的問題都能安全獨立處理。研究比較的是兩個資料蒐集時段，並非同一群人的孕期與產後，因此每週對話量的差異，也不能解釋為產後需求下降。
+對臨床服務而言，我們可以把這份資料當成問題清單的起點。優先整理常見飲食與監測問題，再檢視機器人無法回答的內容，決定哪些需要補充資料、哪些應轉給團隊。研究沒有證明焦慮、血糖或工作量改善；這些結果要在自己的服務中另外評估。先了解需求，再定義可承擔的服務範圍，才有機會讓工具長期使用。
+
+【延伸說明】
+舉例來說，系統回答了很多問題，可能表示使用者願意互動；但若反覆回答同一個問題，也可能表示先前說明不清楚。因此對話量需要搭配問題類型、重複提問與未解決問題分析。對觀察性資料而言，這樣的解讀比把使用量直接當成療效更合理。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：評估聊天機器人時，回答率、醫療正確率與病人結局，你會如何分開衡量？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Medical Chatbot Architecture」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Before we build a chatbot, we should ask what patients want to know. This study looked at Dina, a chatbot for women with gestational diabetes, or GDM.
+
+The researchers reviewed 610 conversations with 2,838 questions. Questions about glucose, GDM, food, and activity made up about 59 percent of the total. These are common parts of diabetes education. Patients often need to hear the information again when they use it at home.
+
+The chatbot could answer 88.51 percent of questions. This tells us how many questions received an answer. It does not tell us that 88.51 percent of the answers were medically correct or safe.
+
+The study also used two different data-collection periods. They were not pregnancy and postpartum periods in the same group of women. We should not explain the change in use as a fall in need after delivery.
+
+For our service, we can use this study to choose common questions to prepare first. We should also review questions the chatbot cannot answer. Some need better information. Others need a person.
+
+The study did not prove better glucose control or less anxiety. We would need to measure those outcomes separately.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which common patient questions should a chatbot handle first?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：08。依本頁實際畫面調整敘事與適用條件。
+Sagstad et al. JMIR Form Res 2022;6(4):e28091. https://formative.jmir.org/2022/4/e28091/
+
+
+---
+
+## SLIDE 09 — Medical Chatbot Architecture
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+前一頁看到患者的需要，這一頁則回答：資訊應該如何進入醫療對話？請從中央的 LINE 使用者往外看。系統先理解問題，再連結到知識層與醫學指引，並保留人工驗證。這些層次的目的，是讓每個回答都能說明根據與適用範圍。
+例如孕婦問「這種代糖飲料能不能喝」，理解層要辨認這是飲食與孕期情境，還要確認成分，而不是看到「無糖」就直接回答。檢索層找適當來源，知識層協助組織內容，最後把結論改寫為患者能理解的說明。下一張會展示對話範例。
+這裡要特別分清知識組織與證據來源。LLM Wiki 可以整合常見問題，但衍生摘要仍應連回原始指引；人工覆核也需要有負責人與實際流程。圖中的圓圈不是效果保證，而是要落實的責任分工。當資料不足、問題涉及劑量或超出服務範圍時，系統應能清楚停下來，交回照護團隊。
+
+【延伸說明】
+可以用一個高血糖問題來走一次架構：先確認病人在問知識還是正在求助，再確認需要哪些背景，接著找相關來源，最後決定能否回答或需要人工介入。這種逐步檢查，讓每個元件的責任變得具體，也有助於回頭分析錯誤發生在哪裡。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：這個問題如果缺少目前藥名，系統應補問、提供一般衛教，還是轉交人工？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「GPT, RAG and LINE: GDM Examples」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This picture shows how a medical chatbot can connect a patient question with medical sources. Start at the center, with the LINE user.
+
+The first task is to understand the question. The next task is to find useful information. The system then prepares an answer, with a way for the care team to check it.
+
+For example, a pregnant patient asks, “Can I drink this sugar-free drink?” The words “sugar-free” are not enough. We need the ingredients and the pregnancy context. The system should find guidance that fits that question.
+
+The LLM Wiki is a way to organize medical information and common questions. It should still point back to the original source. A summary is useful, but it does not replace the evidence behind it.
+
+Human review also needs a real process. Someone must know when to check an answer and what to do if there is a problem.
+
+The circles in this picture show planned roles. They do not prove that every answer will be correct. If the question asks for an insulin dose, or if key details are missing, the system needs a clear route back to the care team.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Who should check an answer when the system is unsure?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+依附件的 Chatbot／RAG 敘事與目前架構圖補寫；具體對話移至投影片 10。
+Original supplied slide image, Slide_09.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 10 — GPT, RAG and LINE: GDM Examples
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+現在看 GPT、RAG 與 LINE 的對話範例。原稿提出兩個孕期常見問題：酒精攝取與人工甜味劑。這些問題看似簡單，實際上包含成分、用量、適用族群與不同來源的建議，因此很適合展示為什麼需要檢索與來源核對。
+系統應先找到相關指引，再組織成短答與進一步說明。對甜味劑而言，不能把所有產品視為同一類，也不能把主管機關允許使用，改寫成每位孕婦都適合不限量攝取。畫面中的列舉是原型回覆，不應直接當成完整、已驗證的孕期安全清單。原稿中對個別成分的安全性與胎盤影響說明，正式使用前仍須核對對應來源。
+我想強調的不是機器人回答得多長，而是能否回應真正問題、保留條件，並讓患者知道接下來怎麼做。若證據不一致，就說明差異；若資料不足，就先詢問。這種有來源、可修正的對話，比一段語氣很肯定、卻無法追查的文字更有臨床價值。
+
+【延伸說明】
+我會把病人訊息分成第一層短答與第二層說明。第一層回答目前最需要知道的事，第二層保留原因與來源，讓有需要的人再閱讀。最後請病人用自己的話說一次下一步，比單純問「懂了嗎」更能確認理解。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：你會如何把右邊長篇回答改成病人看得懂、又不失去適用條件的三句話？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「The Core Philosophy of Medical AI」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+These examples combine GPT, a search step, and LINE. The search step is called RAG. In simple terms, it means finding useful source information before writing an answer.
+
+The questions here are about alcohol and sweeteners during pregnancy. They look like simple questions, but the details matter. We may need to know the ingredient, the amount, and the person's health situation.
+
+For sweeteners, we should not treat all products as the same. Permission to use an ingredient does not mean that every amount is suitable for every pregnant person.
+
+The reply shown on the slide is an example from the app. It is not a full, checked list of pregnancy advice. Statements about each ingredient still need a matching source.
+
+A helpful reply can have two parts. First, give a short answer to the patient's question. Then offer a simple explanation and a source if the patient wants more detail.
+
+If the sources disagree, say so. If information is missing, ask for it. The aim is not to sound completely certain. The aim is to help the patient understand the next step, while allowing the team to check and correct the answer.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How would you make a long reply easier for the patient to read?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+依附件投影片 09 的對話範例，對齊目前投影片 10。
+Original supplied slide image, Slide_10.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 11 — The Core Philosophy of Medical AI
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張是整套系統的核心：LLM 在醫療中應扮演理解、轉譯與協調工具的角色。左側直接讓模型憑記憶回答，可能出現不存在的文獻、過時資訊，或不適用於目前患者的建議。文字越流暢，有時反而越難察覺問題。
+右側則先把問題連到 Medical Vault，也就是有來源與版本的醫療資料層。模型理解患者的意圖後，檢索相關資料，再把專業內容轉成容易理解的語言。這保留了生成式 AI 的溝通優勢，也讓醫師能回查回答依據。
+不過，連到知識庫並不能保證百分之百正確。來源選錯、表格條件遺失，或生成時過度延伸，仍可能造成錯誤。因此我們的目標應是讓重要結論可追溯、讓不確定性可見，並建立人工覆核與更新機制。把「模型說了什麼」變成「它根據什麼、為什麼適用」，才是臨床上真正需要的轉變。
+
+【延伸說明】
+例如知識庫同時存在新舊兩版指引，模型可能選到語句最接近問題的舊版本。版本管理應在檢索前就發揮作用，而不是等錯誤回答出現後才補救。回答也應標示使用哪一版資料，讓醫師能迅速辨認是否需要更新。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果回答很合理，卻找不到支援該句話的原文，我們要如何處理？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Seven Components of the Chatbot Workflow」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide explains the role we want AI to play. A language model is good at understanding questions and writing clear explanations. But its memory should not be our only source of medical facts.
+
+On the left, a question goes straight to the model. The model may give a correct answer. It may also use old information or invent a reference. A clear and confident reply can still be wrong.
+
+On the right, the model first connects with a checked collection of medical sources. The slide calls this the Medical Vault. The model finds relevant information and explains it in language the patient can understand.
+
+This gives us a way to check where the answer came from. We can see the source and its date. We can also ask whether it fits this patient.
+
+Even this process can make mistakes. The search may choose the wrong page. A table note may be missing. The model may say more than the source supports.
+
+So the main question is not only, “Does this answer sound good?” We should also ask, “What is it based on, and does it fit this situation?” That is the key message of this slide.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Can you find the source for the most important sentence in the answer?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：11。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_11.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 12 — Seven Components of the Chatbot Workflow
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+要把這個原則變成日常服務，需要清楚的元件分工。請沿著圖由左至右看：LINE 接收提問，webhook 傳遞訊息並保留必要上下文，理解模組辨認意圖與範圍，RAG 找資料，LLM Wiki 整理知識，生成模組形成回覆。上方的維運監控涵蓋整條流程。
+原稿用一個很實際的例子：「晚餐吃多了，血糖 11.2，需要加打胰島素嗎？」首先要確認單位，不能把 mmol/L 與 mg/dL 混用；其次，這是劑量問題，應走專業評估路徑，不能只因提到晚餐就歸入一般飲食衛教。對話記憶可以補充背景，但不是最新處方的替代品。
+這套架構的價值，是讓我們知道哪一步判錯、哪個來源不足，以及何時需要人工介入。反應速度與同時服務人數要實測，不能從架構圖推論。每個元件都有明確的輸入、輸出與失敗處理，才能讓看起來簡單的一則訊息，背後有可檢查的照護流程。
+
+【延伸說明】
+系統測試可以刻意放入不完整問題、錯別字、超出範圍的問題，以及需要人工協助的訊息。觀察的不只是最後回答，還包括系統是否選對路徑。這樣才能把看不見的流程錯誤找出來，而不只是修飾回覆文字。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：這七個環節中，哪一個失敗最容易在最後的回答中被隱藏？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「From Guidelines to Structured Knowledge」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This diagram shows seven parts of a chatbot service. Let us follow one message from left to right.
+
+The patient sends a question through LINE. A webhook carries the message to the system. You can think of the webhook as the connection that passes the message along.
+
+The next part checks what the patient is asking. Then the search finds useful medical information. The knowledge layer helps organize it. The writing step turns it into a reply. Monitoring covers the whole process.
+
+Consider this message: “I ate too much at dinner. My glucose is 11.2. Should I take more insulin?” First, we must check the unit. Second, this is a dose question. The word “dinner” does not make it a simple food-education question.
+
+The system needs to send it to the right care process. It should not freely invent a dose. Also, old chat messages are not a current prescription.
+
+Each part needs a clear job and a plan for errors. If the final answer is wrong, we should be able to find where the problem started. A good service depends on the whole process, not just the language model.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. At which step should this insulin-dose question reach the care team?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：12。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_12.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 13 — From Guidelines to Structured Knowledge
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+有了架構，下一步是把指引整理成可以檢索的資料。這張用輸送帶來說明：原始 PDF 進來，先清理頁首頁尾與文字辨識雜訊，再保留章節、條文、表格與臨床任務的關係，最後加上來源、版本與適用族群等標記。
+醫學資料最容易出問題的地方之一是表格。如果數值與欄名、註腳被拆開，模型可能找到一個門檻，卻不知道它適用於哪個族群。處理方式可以是結構化表格、鍵值欄位或帶有完整上下文的片段，重點是檢索時仍能把條件一起帶回來。不是所有文件都能用同一套切分方式。
+原稿強調把知識變成標準零件，我認為這個比喻很好，但零件仍需驗收。抽取後要檢查數字、否定語句與表格關係，也要辨認示意圖上的舊版文件，不能因為已入庫就視為現行建議。乾淨的資料能減少錯誤來源，但不會自動消除所有模型錯誤。
+
+【延伸說明】
+可以選一個包含註腳的表格當測試案例，先人工整理完整含義，再看看系統擷取後是否保留。若欄位與註腳分開存放，就要建立可一起取回的關係。知識庫的可靠度，常常取決於這些看起來很小的細節。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果一個治療門檻只留下數字，還缺少哪些必要資訊？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Hybrid Retrieval for Clinical Questions」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+A medical knowledge collection needs more than uploaded PDF files. We need to prepare the information so that the system can find it and understand its limits.
+
+This picture uses a conveyor belt to show the process. First, clean the text. Remove repeated page headings and check errors from scanned pages. Then keep the sections, recommendations, tables, and notes in a clear order.
+
+Tables are especially important. Imagine that the system finds a treatment number but loses the row saying which patients it applies to. The number may be correct, while the advice is wrong for the patient.
+
+We therefore need to keep the table heading and notes with the data. Different documents may need different methods. Cutting every page into equal pieces may not work well.
+
+Next, add the source, date, and patient group. When a guideline changes, the system should know which version to use.
+
+Finally, check the prepared content. Look closely at numbers and words such as “not.” A missing “not” can reverse the meaning. Good source preparation reduces errors, but the final answer still needs checking.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What could go wrong if a table value loses its heading?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：13。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_13.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 14 — Hybrid Retrieval for Clinical Questions
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+只有語意相近，還不足以回答醫療問題。患者說「怎麼控糖」，可能指孕期、第一型糖尿病，或其他情境；如果檢索只找相似文字，就可能把不適用的資料放在一起。這張漏斗圖因此結合四種方法。
+語意檢索處理日常語言與醫學用語的差異；關鍵字保留藥名、縮寫與指標；LLM Wiki 可以提供經整理的高頻問題路徑；中介資料則幫助篩選族群、版本與來源。這些方式彼此補足，不需要把它們說成已證明優於所有方法的新演算法。
+例如孕婦問飲食問題，我們先確認孕期情境，再看來源是否適用。若不同指引結論不一致，應保留差異與日期，而不是強行合併成一個肯定答案。多個來源也不代表多份獨立證據，轉載同一研究不能重複計算。漏斗最後輸出的，應是可以檢查的證據組合，讓生成模組有根據地說明，也知道哪些部分仍然沒有答案。
+
+【延伸說明】
+一個實用的測試集可以同時包含病人用語與專業用語，兩者應找到相容的證據。若某種問法經常失敗，先檢查詞彙與資料標記，再考慮模型調整。用真實問題評估，可以避免系統只在我們自己寫的標準問題上表現良好。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：怎麼證明找到的段落真的回答了病人的問題，而不是只包含相同關鍵字？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Automated Insulin Delivery with MiniMed 780G」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Patients and medical guidelines often use different words. A patient may say, “How do I lower my sugar?” The guideline may use a more formal medical term.
+
+This slide combines several ways to search. One method looks for similar meaning. Another looks for exact words, such as a drug name or a lab test. A prepared set of common questions can help with frequent topics. Source labels help select the right patient group and document date.
+
+Why use more than one method? A search based only on similar meaning may find advice for the wrong group. Pregnancy advice and advice for an older adult may contain similar words but have different goals.
+
+The system should first confirm the patient's situation. It should then select sources that fit. If two guidelines disagree, we need to keep that difference visible. We should not force them into one certain answer.
+
+Also, several websites may copy the same study. That still counts as one study, not several separate pieces of evidence.
+
+The goal of the search is a small set of useful sources that we can check. Better search gives the model a stronger starting point for its reply.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How can we check that a source fits this patient group?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：14。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_14.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 15 — Automated Insulin Delivery with MiniMed 780G
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+現在進入 AID 與孕期個案。原稿介紹一位妊娠約二十週、合併第二型糖尿病的孕婦，討論如何從原有治療轉入胰島素幫浦與 CGM 的照護流程。這是孕前既有第二型糖尿病合併妊娠的情境，不能與妊娠期新診斷 GDM 混為一談。
+這張 780G 概念圖先提醒我們，裝上設備並不等於不再需要教育與追蹤。患者仍要理解餐食輸入、警示與異常處理，團隊也要確認設備設定與照護目標。AID 控制演算法與前面用來對話的 LLM，是不同技術，不能把其中一項的證據移到另一項。
+孕期評估也要使用適當範圍，不能直接套用一般成人 70–180 mg/dL 的 TIR。63–140 mg/dL 常用於孕期 CGM 評估，但百分比目標與證據仍要區分糖尿病類型。這個第二型糖尿病個案應作為團隊經驗討論，設備適用性與當地核准範圍另行確認。接著我們看當時的起始參數如何估算。
+
+【延伸說明】
+評估設備時也要納入生活層面：病人是否能穩定取得耗材、理解警示、處理感測器問題，並知道何時聯絡團隊。血糖曲線的改善與使用負擔，應一起討論。對孕期個案而言，追蹤安排與跨團隊合作尤其需要事先規劃。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：在討論 AID 成效前，我們必須先確認哪些目標與適用族群？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Pregnancy Case: Initial Pump Settings」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+We now move from chatbots to automated insulin delivery, or AID. These are different types of technology. A chatbot writes replies. An AID system uses glucose data and its control rules to adjust insulin delivery.
+
+The next case involves a woman with type 2 diabetes at about twenty weeks of pregnancy. Type 2 diabetes that was present before pregnancy is different from GDM diagnosed during pregnancy.
+
+The pump does not remove the need for teaching and follow-up. The patient still needs to understand meal entries, alerts, and what to do when something goes wrong. The care team needs to review settings and glucose patterns.
+
+Pregnancy also uses different glucose goals. We should not apply the usual adult range of 70 to 180 to every pregnancy report. The range of 63 to 140 is often used for pregnancy CGM. The percentage goals and evidence still depend on the type of diabetes.
+
+We will discuss this as one supervised clinical case. It is not proof that the same device and settings fit every pregnant patient. Device approval and local rules also need checking.
+
+With that background, let us look at how the starting settings were estimated.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What should we check before using this case to guide another patient?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：15。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_15.png. ADA Standards of Care in Diabetes 2026, Management of Diabetes in Pregnancy. https://doi.org/10.2337/dc26-S015
+
+
+---
+
+## SLIDE 16 — Pregnancy Case: Initial Pump Settings
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+請看投影片上的起始估算。原來早、中、晚與睡前劑量為 22、22、22、14 單位，合計每日 80 單位。個案當時以八成估算為 64 單位，再取其中兩成作為基礎量，得到每日 12.8 單位，平均每小時約 0.53 單位。這是個案採用的思考，不是所有孕婦都應使用的八折或八比二規則。
+再看敏感係數：1800 除以 64，約為 28 mg/dL／單位；碳水比用 400 除以 64，約為 6.25 克／單位。畫面另列分段基礎率、AIT 兩小時與目標 100 mg/dL。估算和實際設定應分開記錄，例如 0.5 與 0.6 單位的分段合計不會剛好等於 12.8 單位。
+還有兩個設備觀念要釐清。手動模式的基礎率不等於 SmartGuard 自動基礎輸注；AIT 也是演算法參數，不能解讀成胰島素兩小時後失效。較短 AIT 可能增加校正輸注，不能說縮短它就能避免堆疊。所有設定都要放回實際模式、個案資料與團隊追蹤中解讀。
+
+【延伸說明】
+請看這些算式時，同時說出單位。基礎輸注是每小時多少單位，碳水比是每單位涵蓋多少克，敏感係數則描述每單位預期影響。把單位唸出來，是很簡單卻有效的教學方法，也能及早發現數字被放進錯誤欄位。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：哪一個參數最不能只靠公式決定？我們要如何用後續資料驗證？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「The First Day of SmartGuard」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Let us go through the starting calculations slowly. The previous daily doses were 22, 22, 22, and 14 units. Together, they make 80 units per day.
+
+In this case, the team used 80 percent of that amount as a starting estimate. Eighty times 0.8 gives 64 units. Twenty percent of 64 gives 12.8 units for basal insulin. Dividing by 24 gives about 0.53 units per hour.
+
+These are choices made for this case. They are not rules for every pregnant patient.
+
+The sensitivity estimate is 1800 divided by 64, or about 28 milligrams per deciliter per unit. The carbohydrate ratio is 400 divided by 64, or about 6.25 grams per unit. Please keep the units clear. These two numbers mean different things.
+
+The slide also lists a two-hour active insulin time, or AIT. This is a setting used by the system. It does not mean insulin stops working after two hours. A shorter AIT may lead to more correction insulin.
+
+The manual basal setting is also different from SmartGuard automatic basal delivery. We need to know which mode is running. The starting formula is only the beginning. Follow-up data are needed to judge the settings.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Why is it important to say the unit after each number?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：16。依本頁實際畫面調整敘事與適用條件。
+MiniMed 780G manufacturer documentation: https://origin.medtronicdiabetes.com/customer-support/minimed-780g-system-support/adjusting-active-insulin-time ; https://origin.medtronicdiabetes.com/customer-support/minimed-780g-system-support/faq
+
+
+---
+
+## SLIDE 17 — The First Day of SmartGuard
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+參數設定之後，第一天最重要的是把設備操作與真實生活接起來。這張報表可以帶我們看餐食輸入、輸注時間與血糖反應，但一天的結果不足以代表長期成效。原稿特別關注餐後先高、之後偏低的情境，這需要核對餐前劑量時間、估計碳水與後續校正。
+請注意 Safe Meal Bolus 與自動校正是不同概念。前者是在預測低血糖風險時調整餐時建議量；不能把它說成系統因為高血糖而頻繁追加的功能。若餐後偏高，團隊應回顧資料，不能鼓勵患者以虛構碳水或額外輸注繞過安全機制。
+原稿提到餐前十五至二十分鐘與超過六十克碳水分段處理。這些應保留為個案討論，而不是所有孕婦都必須遵守的規則。餐前偏低、進食不確定等情境會改變安排；SmartGuard 的功能限制也需要確認。教學重點是讓患者理解為什麼要提前規劃、如何如實記錄，以及遇到不符合預期的反應時如何聯絡團隊。
+
+【延伸說明】
+我會把第一天當成觀察起點，請病人記錄最困難的操作，而不只是交出漂亮的報表。有時最需要改善的是忘記輸入餐食、對警示不理解，或不知道資料是否同步。這些操作問題若沒有被處理，後續數據也可能難以解讀。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：第一天看起來改善時，還有哪些事情必須持續觀察？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「AI-Assisted Insulin Adjustment」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This is the first day of SmartGuard use. We can review meal entries, insulin timing, and the glucose line together. One day can teach us a lot, but it cannot show long-term results.
+
+The original case discussion focused on glucose rising after a meal and falling later. Before changing anything, we need to check when insulin was given, how much food was entered, and what was actually eaten.
+
+There are two different pump features to remember. Automatic correction gives correction insulin under the system's rules. Safe Meal Bolus checks a meal dose and may reduce it if the system predicts a low. They are not the same feature.
+
+The slide discusses giving meal insulin earlier and handling larger carbohydrate meals. These are case discussions, not fixed rules for all pregnant patients. A low glucose before eating or an uncertain meal can change the plan. The available pump functions also matter.
+
+Patients should record food honestly. They should not enter food they did not eat to make the pump give extra insulin.
+
+The first day is also a chance to ask about the patient's experience. Which step was difficult? Were the alerts clear? Good teaching supports both safer use and better data.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What would you review before changing a setting after the first day?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：17。依本頁實際畫面調整敘事與適用條件。
+MiniMed 780G manufacturer documentation (Safe Meal Bolus, automatic correction, SmartGuard limitations): https://origin.medtronicdiabetes.com/customer-support/minimed-780g-system-support/faq
+
+
+---
+
+## SLIDE 18 — AI-Assisted Insulin Adjustment
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+胰島素滴定一直是門診與個案管理中的重要工作。這張提出的方向，是讓 AI 協助整合 CGM、飲食、活動與用藥時間，形成醫師容易覆核的決策資料。OpenClaw、LLaMA 與本地知識庫，在這裡代表可採用的技術元件；投影片本身不能證明已完成醫療微調、正式部署或臨床驗證。
+假設午後血糖偏高，系統可以提出幾個需要確認的原因：碳水估計是否不足、餐時劑量是否延遲，或是否存在其他用藥與生理變化。這些是待評估的假說，不應從一張曲線直接推導為確定原因。
+我們可以把輸出設計成一張候選決策卡，清楚列出資料、支持理由與缺少的背景，再由有權限的臨床人員確認。最終處方與劑量責任仍屬於臨床團隊。這種工作方式希望減少的是來回查紀錄與重複整理的時間，是否真的省時、是否增加更正負擔，都需要實際測量，而不是以一鍵簽核作為成功的唯一標準。
+
+【延伸說明】
+例如住院病人的營養突然中斷，即使前一天血糖偏高，今日的決策背景已經改變。系統應優先顯示這種新事件，並說明哪些舊資料可能不再適用。這比用更多過去讀值算出一個看似精確的答案，更接近臨床需要。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：這個系統的輸出應該停在哪一步，才能讓責任與執行權限清楚？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「How Users Perceive Digital Titration」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Insulin adjustment takes time. We need to review glucose, meals, activity, and medication records. This slide shows how AI might help organize those details.
+
+The tool names on the slide are possible parts of a system. Their presence does not prove that the system has been tested for clinical use.
+
+Suppose glucose is often high after lunch. AI can help list questions. Was the carbohydrate estimate too low? Was meal insulin late? Did activity or another medicine change? These are possible explanations to check. The glucose curve does not prove which one is correct.
+
+The system can prepare a short decision card. It should show what the data say, why a suggestion is being considered, and which details are missing. A clinician then reviews the card and decides what to do.
+
+This is especially important when the patient's condition changes. For example, a patient may stop eating during an illness. Yesterday's glucose readings may no longer describe today's needs.
+
+The aim is to reduce time spent searching through records. We still need to measure whether the system saves time and how often its output needs correction. A fast approval button is not the same as a good clinical decision.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What should the clinician see before reviewing an AI dose suggestion?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：18。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_18.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 19 — How Users Perceive Digital Titration
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+數位滴定工具除了血糖結果，也可能改變醫患互動。患者在家最常擔心下一步怎麼做，團隊則需要在有限時間內掌握紀錄。這張從醫護與患者兩個角度呈現使用感受，讓我們理解工具如何融入照護。
+醫護端圖中約七成受訪回覆認為電話聯繫減少、滴定較簡化，或較能掌握患者狀況。患者端則包含對胰島素治療的理解、覺得醫師更了解自己的狀態，以及操作時的安心感。這些都是有價值的體驗資訊，但百分比表示問卷回覆分布，不是實際電話數減少七成，也不是參與感增加七成的量測。
+對我們自己的門診，應把感受與客觀資料放在一起。電話是否真的變少？文字訊息是否增加？患者是否仍知道何時求助？如果工具讓雙方更清楚治療計畫，這值得保留；但改善醫患信任與臨床成效，仍需要進一步驗證。
+
+【延伸說明】
+可以在導入前後各記錄一段時間的電話數量、每次處理時間與未完成事項。若電話減少，但病人訊息轉成更多文字處理，總工作量未必下降。這種觀察讓問卷結果有可驗證的背景，也有助於人力規劃。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：要驗證「減少電話」這件事，除了問卷還需要哪些資料？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Engagement and Real-World Titration Outcomes」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Digital insulin tools may change how patients and clinicians work together. Patients want to know what to do next. Clinicians want a clear view of what happened at home.
+
+This slide shows survey responses from both groups. Many clinicians felt that the tool reduced phone contact, made dose adjustment easier, or gave a better view of the patient's condition. Patients reported better understanding and more confidence in handling insulin.
+
+These are useful findings, but we must read the percentages correctly. If 70 percent of respondents say a task feels easier, it does not mean that the task takes 70 percent less time. It also does not prove better glucose control.
+
+We should ask who answered the survey. Did people who stopped using the tool also respond? Their experience may be different.
+
+In our own clinic, we can compare feelings with real work records. Count the calls and messages. Measure the time needed to handle them. Ask whether patients understand when they should contact the team.
+
+The tool may make the treatment plan clearer. That is worth studying. But improved trust, lower workload, and better glucose are separate outcomes. We should measure each one.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What would you measure to check whether the tool really saves staff time?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：19, 20, 46。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_19.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results. For exact study citation and numerical details, consult the original reference printed on the supplied image. These appendix studies must not be pooled with the Insultrate trial.
+
+
+---
+
+## SLIDE 20 — Engagement and Real-World Titration Outcomes
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+前一頁談使用感受，這張則看使用頻率與血糖結果的關係。它依每週使用程度分組，比較達標與血糖相關指標。這是把實際使用行為拿來分析，與隨機分派工具的試驗不同。也不能把後面另一張備用圖的樣本數與百分比直接搬到本頁。
+我們可以問：較常使用的人是否更容易完成滴定？但也要考慮，願意持續輸入的人可能有較好的數位能力、照護支持，或不同的起始血糖。使用頻率是參與指標，不等於完整治療依從性，更不能單憑分組差異認定使用次數造成改善。
+臨床上的下一步，是了解低使用者遇到的障礙。有些人不知道怎麼輸入，有些人覺得流程太多，也可能已經達標而減少操作。與其直接要求每個人增加登入次數，不如找出能改善的步驟，再看參與與血糖是否一起改變。這樣可以把觀察性資料轉成可檢驗的服務改善假說。
+
+【延伸說明】
+對低使用者，可以先問一個中性的問題：「這個工具哪一步最難完成？」這比直接提醒他應該多用，更容易得到可改善的資訊。若原因是看不清字或沒有網路，增加通知次數不會解決真正的問題。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：低使用頻率反映不願意配合，還是介面、疾病與生活條件造成的障礙？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「The Insultrate Care Workflow」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide asks whether people who use the app more often also have better glucose results. It groups users by how often they used the tool each week.
+
+That is different from a randomized trial. In a randomized trial, chance decides the treatment group. Here, people form groups through their own use of the app.
+
+Frequent users may have more support, stronger phone skills, or different glucose levels at the start. They may also find the tool easier to use. These differences could affect the result.
+
+So we can say that use and outcomes are related. We cannot say that more logins alone caused better glucose control. App use is also only one part of following a treatment plan.
+
+For patients who use it less, start with a simple question: “Which step is difficult?” The problem may be small text, poor internet, too many entries, or an unclear purpose. Some patients may already be stable and need less use.
+
+This kind of study can help us choose what to improve next. We can test a simpler step or more support, then check both app use and glucose results.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Why might one patient use the app less often than another?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件投影片 20 為前頁問卷敘事延續，已併入投影片 19；本頁依實際使用頻率研究圖與附件 49 的解讀方向重寫。
+Original supplied slide image, Slide_20.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results. For exact study citation and numerical details, consult the original reference printed on the supplied image. These appendix studies must not be pooled with the Insultrate trial.
+
+
+---
+
+## SLIDE 21 — The Insultrate Care Workflow
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+接下來用 Insultrate 看一個具體照護流程，將前面談的數位滴定概念拆成患者與團隊各自負責的步驟。
+
+Insultrate 的重點是一套醫師設定、病人執行、團隊追蹤的基礎胰島素調整流程。病人提供空腹血糖，系統依照預先設定的規則提供建議，再記錄劑量與後續結果。這種設計和讓通用聊天模型自由產生劑量不同，評估時也必須分開。
+我會沿著圖中的流程，依序說明誰設定目標、誰輸入數據、病人如何確認建議，以及什麼情況要回到照護團隊。資料品質是關鍵，因為錯誤的空腹標記、輸入錯誤或沒有實際執行的劑量，都可能造成後續判讀偏差。好的工具應讓病人知道目前步驟，也讓醫師能夠回頭追查建議依據，而不是只看到最後一個劑量。
+
+【延伸說明】
+可以請病人示範一次完整操作，從量測、輸入，到確認今天實際使用的劑量。團隊看到的畫面，應能區分建議、病人確認與已執行。這樣回診時才能分析真正的治療過程，而不是把系統建議當成全部已經完成。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果病人收到建議卻沒有執行，系統下一次應如何知道？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「The Randomized Trial Design」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Insultrate shows a practical process for changing basal insulin doses. Basal insulin is the background insulin used across the day and night.
+
+The clinician sets the plan. The patient enters fasting glucose readings. The tool follows the planned rules and gives a dose suggestion. The patient records the dose used, and the team can review progress.
+
+This is different from asking a general chatbot to invent a dose. A dose-adjustment tool needs clear rules and a defined care process.
+
+Let us follow one day's record. Was the glucose truly fasting? Was the number entered correctly? Did the patient take the suggested dose? If any of these details are wrong, the next suggestion may be based on the wrong information.
+
+It helps to keep three things separate: the suggested dose, the patient's confirmation, and the dose actually taken. A suggestion on the screen does not prove that it happened.
+
+Patients also need to know when to stop and contact the team. Staff need to know who will review problems.
+
+The value of the tool is a clear path between visits. We should be able to look back and understand why each suggestion was made and what happened after it.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How should the system record a dose that was suggested but not taken?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_21.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 22 — The Randomized Trial Design
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+流程介紹之後，我們回到研究設計，先釐清這項工具在什麼條件下接受評估。
+
+這張介紹一個二十四週、開放標籤、多中心的隨機試驗，約兩百位病人以一比一分組。介入把數位支持工具加入基礎胰島素照護，對照組則接受通常照護。解讀結果之前，先確認納入族群、胰島素種類、教育內容與追蹤安排，因為這些會影響能否套用到自己的門診。
+開放標籤表示病人與照護者知道分組，因此互動頻率與行為可能跟著改變。隨機分派有助於降低基線混雜，但仍需看失訪、資料缺漏與分析方法。正式報告中，依從性並沒有呈現顯著組間差異，所以不能把後續血糖改善，簡化成已證明「依從性改善」的結果。我們應分別討論工具使用、治療行為與臨床終點。
+
+【延伸說明】
+比較研究流程與自己的門診時，可以把每一步列出負責人。如果試驗有固定電話追蹤，而實務無法提供，就應把這個差距明確記下。可行性評估不是否定研究，而是確認哪些條件需要一起移植，才有機會得到相近結果。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：在自己的門診使用前，研究流程中哪個部分最需要重現？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「HbA1c Improvement at 24 Weeks」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Before looking at the results, let us understand the study. This was a twenty-four-week trial with about two hundred people. They were assigned by chance to two groups.
+
+One group received digital support with basal insulin care. The other received usual care. It was an open-label study. This means that patients and staff knew which group they were in.
+
+Knowing the group may change behavior. Patients may check more often, and staff may give more attention. We therefore need to understand the education and follow-up provided to both groups.
+
+We should also ask how many people finished the study and how missing data were handled. Assigning groups by chance helps make a fair comparison, but it does not remove every problem.
+
+The report did not show a clear difference in adherence, meaning how well people followed the treatment plan. We should not claim that better adherence explains the glucose result without evidence.
+
+Before bringing this tool to our clinic, we need to compare the study process with our own service. If the study included regular support calls, can we provide them? The tool and the care around it both matter.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which part of the study's follow-up could your clinic provide?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_22.png. Lu et al. Primary Care Diabetes 2026;20(4):411–417. https://doi.org/10.1016/j.pcd.2026.04.012 ; PMID 42067440. https://pubmed.ncbi.nlm.nih.gov/42067440/ ; trial NCT05684341.
+
+
+---
+
+## SLIDE 23 — HbA1c Improvement at 24 Weeks
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+接著看主要血糖結果。這一頁的數字需要和研究時間、比較組及分析方式一起說明。
+
+這張的主要訊息是二十四週時，介入組的 HbA1c 改善幅度較大。圖中介入組大約從八點八降到七點九四，對照組從八點七四降到八點三二。平均變化約為負零點八七與負零點四三個百分點；報告的調整後組間差異約負零點四零，P 值零點零一零九。
+這裡要清楚區分原始變化相減與統計模型調整後差異，也要使用「百分點」，不是相對下降百分比。另一個重點是兩組都改善，表示通常照護本身仍然有作用；而平均 HbA1c 仍未降到七以下，提醒我們工具並沒有解決所有問題。臨床解讀還要同時看低血糖、治療負擔與病人的個別目標。
+
+【延伸說明】
+可以用一句簡單的說法向病人解釋：這個研究平均有額外改善，但個人反應仍有差異。接著討論病人最在意的是什麼，例如減少高血糖、避免低血糖，或減少回診之間的不確定。這能把群體平均結果轉成個別照護討論。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果 HbA1c 改善，但病人的低血糖與操作負擔增加，會如何改變判斷？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Fasting Glucose Outcomes」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This chart shows HbA1c over twenty-four weeks. HbA1c gives us a longer view of glucose control.
+
+The app-supported group started near 8.8 percent and finished near 7.94 percent. The usual-care group started near 8.74 percent and finished near 8.32 percent. Both groups improved.
+
+The average falls were about 0.87 and 0.43 percentage points. After the study's adjustment for other factors, the difference between groups was about 0.40 percentage points. The reported P value was 0.0109.
+
+Please note the words “percentage points.” We are not saying that HbA1c fell by forty percent. We are describing the difference between two HbA1c percentages.
+
+The main point is that the digital-support group had a greater average improvement under these study conditions. It does not mean every patient improved by the same amount.
+
+Also, the average value was still above seven percent. The tool did not solve every treatment problem. We need to consider the patient's own target, low glucose, and the effort needed to use the tool.
+
+When discussing this with a patient, we can say there was an extra benefit on average, while explaining that individual results may differ.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What other result would you want to see alongside HbA1c?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_23.png. Lu et al. Primary Care Diabetes 2026;20(4):411–417. https://doi.org/10.1016/j.pcd.2026.04.012 ; PMID 42067440. https://pubmed.ncbi.nlm.nih.gov/42067440/ ; trial NCT05684341.
+
+
+---
+
+## SLIDE 24 — Fasting Glucose Outcomes
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+HbA1c 之外，空腹血糖能幫助我們理解基礎胰島素滴定的直接觀察結果。
+
+空腹自我監測血糖提供另一個角度。投影片中兩組起點都約一百八十七 mg/dL，二十四週時介入組約一百三十一，對照組約一百四十二。下降幅度約五十六與四十五 mg/dL，模型估計的組間差異約十一 mg/dL，P 值零點零二五八。
+這個結果和基礎胰島素的調整目標有關，但空腹血糖不是全天血糖的替代品。即使空腹改善，餐後高血糖或夜間低血糖仍可能存在。讀圖時，也要確認每個時間點使用多少次量測、是否真正空腹，以及缺漏值如何處理。我會把這張和 HbA1c、安全性與劑量走勢一起看，而不是選擇其中一個最漂亮的指標作結論。
+
+【延伸說明】
+這張也可以提醒病人，量測的時機會影響意義。若某些讀值是在吃早餐後才量，直接當成空腹資料會造成偏差。介面可以幫助標記情境，但仍需要教育與確認。資料越容易收集，越要注意它是否真的代表我們想測量的事情。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：空腹血糖已改善，HbA1c 卻仍偏高時，我們需要補看什麼資料？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Dose Titration and Time to Target」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This chart focuses on fasting glucose. Both groups started at about 187 milligrams per deciliter.
+
+At twenty-four weeks, the digital-support group was near 131. The usual-care group was near 142. The average falls were about 56 and 45 milligrams per deciliter.
+
+The adjusted difference was about 11 milligrams per deciliter, with a reported P value of 0.0258. This supports the finding of better glucose results in the digital-support group.
+
+Fasting glucose is useful when reviewing basal insulin. But it tells us only part of the story. A person may have good fasting readings and still have high glucose after meals. Low glucose during the night may also be missed.
+
+We need to check how the readings were collected. Were they taken before breakfast? How many readings were used? Were there missing days? A reading taken after breakfast should not be treated as fasting.
+
+This is why we look at fasting glucose together with HbA1c, low-glucose events, and the dose records. One good result should not hide another problem.
+
+The chart helps us understand the effect of the care process, while the rest of the data help us judge the overall result.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What would you check if fasting glucose improved but HbA1c stayed high?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_24.png. Lu et al. Primary Care Diabetes 2026;20(4):411–417. https://doi.org/10.1016/j.pcd.2026.04.012 ; PMID 42067440. https://pubmed.ncbi.nlm.nih.gov/42067440/ ; trial NCT05684341.
+
+
+---
+
+## SLIDE 25 — Dose Titration and Time to Target
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這一頁把終點結果展開成時間過程，看看兩組如何到達最後的劑量與血糖狀態。
+
+這張呈現劑量調整的時間走勢。數位工具可能讓病人在門診之間更規律地回顧空腹血糖，並依照設定規則進行調整。觀察劑量上升的時點，比單看最後劑量更能了解介入如何作用。可是，劑量比較高本身不是成功，目標仍是兼顧控制、安全與可持續性。
+圖中首次達標時間約二點一七與二點九四週，但該比較的 P 值約零點二七。因此可以描述為數值上的較早趨勢，不能宣稱已經證明顯著縮短達標時間。這正是演講時容易被圖形帶走的地方：線條分開，不一定代表統計上明確的差異。我們也應確認達標定義，是單次數值還是持續多日達標。
+
+【延伸說明】
+可以請聽眾先看曲線，再暫時不看 P 值，描述自己看到的現象；接著補上統計資訊，修正結論的語氣。這個練習讓大家感受到，視覺印象與證據強度是不同層次。醫學演講的精確，有時就在「較早」與「證明較早」的差別。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：「第一次達標」與「穩定達標」，哪個比較符合病人的實際需要？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Hypoglycemia and Safety」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide shows how insulin doses changed over time and when patients first reached the fasting-glucose target.
+
+A digital tool may help patients review their readings between visits. It may also help them follow the planned dose changes. Looking at the timing of these changes can tell us more than looking only at the final dose.
+
+A higher dose is not automatically a better result. We still want good glucose control, fewer lows, and a plan the patient can follow.
+
+The displayed time to first target is about 2.17 weeks in one group and 2.94 weeks in the other. The first number is smaller, but the P value is about 0.27. This study did not show a statistically clear difference for that result.
+
+We can say that one group reached the target earlier in the numbers shown. We should not say that the study proved faster target achievement.
+
+Also, reaching the target once is different from staying in the target range. We need to know how the study defined success.
+
+This is a good example of reading the numbers and the study methods together. A gap between two bars does not tell the whole story.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Is reaching the target once enough, or should we look for a stable pattern?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_25.png. Lu et al. Primary Care Diabetes 2026;20(4):411–417. https://doi.org/10.1016/j.pcd.2026.04.012 ; PMID 42067440. https://pubmed.ncbi.nlm.nih.gov/42067440/ ; trial NCT05684341.
+
+
+---
+
+## SLIDE 26 — Hypoglycemia and Safety
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+看到血糖改善後，下一個問題是安全性。請將這張和前面的療效圖一起解讀。
+
+安全性要和血糖改善一起呈現。這張列出不同低血糖定義與事件數，其中夜間血糖小於等於七十 mg/dL 的事件率，圖中約為每人年零點二六與一點一五次。閱讀時要分清事件數、發生事件的人數，以及以追蹤時間校正的事件率，這三者不能混用。
+某個夜間低血糖項目出現差異，不代表所有低血糖或其他不良事件都同樣改善。反過來，沒有顯著差異也不等於完全沒有風險，尤其事件少時，估計會比較不精確。量測頻率與病人回報方式也可能影響偵測。我會請聽眾把療效與安全性放在同一個決策框架，避免只看 HbA1c 的下降。
+
+【延伸說明】
+如果同一位病人反覆發生夜間低血糖，事件數會增加，但受到影響的人數可能只有一位。因此兩種呈現都重要：前者描述負擔，後者描述有多少人受到影響。把它們分開說明，可以避免百分比或事件率造成誤解。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：兩組量測頻率不同時，低血糖事件的比較可能受到什麼影響？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「What the Titration Trial Supports」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Better glucose control must be considered together with safety. This table reports several types of low-glucose events.
+
+One result concerns low glucose at night, at or below seventy milligrams per deciliter. The rates shown are about 0.26 and 1.15 events per person-year.
+
+A person-year combines the number of people and their follow-up time. It is different from the number of people who had an event. It is also different from the total number of events.
+
+For example, one person may have several low-glucose events. That adds several events, but only one person to the number affected. Both views are useful.
+
+A difference in one category does not prove that every type of low glucose improved. Also, no clear difference in another category does not mean there is no risk. The study may have too few events to give a clear answer.
+
+How we measure glucose also matters. More frequent checks may find more lows. We should understand the measurement and reporting process before comparing groups.
+
+The main message is to review benefit and risk together. HbA1c alone is not enough to judge whether a tool improves care.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Does this row count people, events, or events over time?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_26.png. Lu et al. Primary Care Diabetes 2026;20(4):411–417. https://doi.org/10.1016/j.pcd.2026.04.012 ; PMID 42067440. https://pubmed.ncbi.nlm.nih.gov/42067440/ ; trial NCT05684341.
+
+
+---
+
+## SLIDE 27 — What the Titration Trial Supports
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+現在把試驗的設計、療效與安全性放在一起，界定哪些結論可以帶回臨床。
+
+把前面結果放在一起，這個試驗支持的是：在特定族群與照護流程中，數位調整支持可以改善部分血糖結果，並需要持續監測安全性。它沒有證明每位病人都能獨立完成治療，也沒有證明任何聊天模型都能產生相同效果。
+臨床實施時，工具、教育、追蹤與醫師設定是一個整體。若抽掉其中幾個環節，成效可能不同。這也提醒我們，購買軟體並不等於複製研究。我會優先定義適合使用的人、暫停或轉人工的條件，以及團隊實際能承擔的回應頻率，再開始小規模導入。最後，應同時觀察控制、低血糖、退出率與工作量，才知道這個流程是否值得擴大。
+
+【延伸說明】
+試辦時可以先設定一個固定回顧點，檢查哪些病人完成流程、哪些需要額外協助，以及團隊是否有能力持續。若結果不理想，先分析是資料、操作還是照護安排的問題，再決定修改或停止。這比單純把使用人數擴大更有學習價值。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果只能先做一個小型試辦，您會選哪一類病人與哪個主要成效指標？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「LLM-Assisted CGM Reporting」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Let us bring the trial results together. Under the study's conditions, digital support helped improve some glucose results. Safety still needed careful follow-up.
+
+This does not mean every patient can manage insulin without support. It also does not mean that a general chatbot would give the same result.
+
+The study included more than software. It included education, clinician settings, and follow-up. If our clinic removes those parts, our results may be different.
+
+A useful next step is a small pilot. We can choose a group of patients who can use the tool and define when staff should step in. We also need to decide who checks the data and how quickly the team can respond.
+
+At the end of the pilot, we should review glucose control and low-glucose events. We should also ask who stopped using the tool and why. Staff time matters too.
+
+If something is not working, we need to find the reason. Is the record incomplete? Is the app hard to use? Is follow-up missing?
+
+The goal is to learn whether the whole care process works in our setting. We can then improve it before offering it to more patients.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which result would tell you that a small pilot is worth expanding?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_27.png. Lu et al. Primary Care Diabetes 2026;20(4):411–417. https://doi.org/10.1016/j.pcd.2026.04.012 ; PMID 42067440. https://pubmed.ncbi.nlm.nih.gov/42067440/ ; trial NCT05684341.
+
+
+---
+
+## SLIDE 28 — LLM-Assisted CGM Reporting
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+當患者累積兩週的 CGM 與生活紀錄，下一個困難是如何快速整理成專科醫師能使用的報告。這張示範把數值計算與文字解讀分成兩個步驟：先由可重現的程式產生指標，再讓 LLM 協助撰寫摘要。
+圖上的 TIR 68%、TBR 4%、TAR 28%、GMI 7.1% 與 CV 32%，是報告設計的示例。不能僅因版面完整，就認定它代表一位真實患者的十四天結果；也不能把 CV 32% 直接稱為明顯不穩定。實際解讀要先確認資料期間、覆蓋率、族群與目標。
+LLM 可以把指標與有時間標記的餐食、活動、症狀放在一起，指出值得追問的型態。例如午後較高時，請團隊回顧飲食與用藥紀錄；夜間偏低時，檢查逐日資料與症狀。這些是可覆核的解讀與問題，不是已建立的因果故事。最後的報告要讓醫師快速看見事實、推論與缺漏，並由團隊決定後續行動。
+
+【延伸說明】
+一份好的草稿可以先寫「夜間有較多偏低讀值，需核對感測器與症狀」，而不是直接給出劑量改動。醫師確認後再形成最終報告。這樣的分工保留 AI 的整理能力，也讓讀者知道哪些結論已經經過專業判斷。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：報告中哪一句屬於數據，哪一句是推論，哪一句需要病人確認？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Reading the CGM Metrics Correctly」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+CGM produces a large amount of data. The challenge is to turn those data into a report that is easy to review.
+
+We use two steps. First, a computer program calculates the numbers. Second, the language model helps explain them. The model should not guess exact percentages by looking at the chart.
+
+The values on this slide are examples for a report design. They include a time in range of 68 percent and time below range of 4 percent. They do not prove that a real patient was observed for fourteen days.
+
+For a real report, we first check the dates, how much data are available, and which glucose range is being used. Then we calculate the measures.
+
+AI can help connect the results with meal, activity, and symptom records. It may say, “Glucose is often high in the afternoon. Please review lunch and insulin timing.” That is a useful question, not proof of the cause.
+
+A good report separates what we know from what we think may be happening. It also shows what is missing. This helps the clinician review the report and plan the next conversation with the patient.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which sentence in an AI report is a fact, and which is a possible explanation?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：28。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_28.png. International Consensus on Time in Range (2019). https://pmc.ncbi.nlm.nih.gov/articles/PMC6973648/
+
+
+---
+
+## SLIDE 29 — Reading the CGM Metrics Correctly
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這一頁進一步展示指標計算。先看五個區間：極低 0.15%、偏低 3.50%、範圍內 61.28%、偏高 20.21%、極高 14.86%，加總為 100%。因此總 TBR 是 3.65%，總 TAR 是 35.07%，不能只拿其中一個高血糖區間代表全部。
+再看平均血糖 165.5 mg/dL、GMI 7.27%、CV 0.41 與 GRI 34.83。CV 0.41 要轉成 41%，GMI 的中文是葡萄糖管理指標，與實際檢驗的 HbA1c 不完全相同；GRI 也不是時間百分比。這些檢查適合交給確定性程式完成，而不是請模型看圖猜數字。
+在敘述層，我們可以說資料顯示高血糖暴露與變異值得回顧；但單靠總百分比，不能斷定偏低一定發生在夜間。時間分布必須到下一張 AGP 與逐日曲線確認。把計算與判讀分開，能讓醫師知道每一句話的依據，也避免報告因語氣流暢而掩蓋算術或時間上的錯誤。
+
+【延伸說明】
+我會在正式生成文字前，先設幾個程式檢查：百分比加總、單位、資料日期與範圍定義。若其中一項不一致，先停止形成完整結論。這不是增加複雜度，而是把可重複的算術核對放在最前面，避免錯誤一路進入病人報告。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果系統只把二十點二一當成總 TAR，會如何改變整體控制的判讀？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Interpreting the Ambulatory Glucose Profile」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This page shows why checking the numbers is important. There are five glucose groups: very low, low, in range, high, and very high.
+
+Their percentages are 0.15, 3.50, 61.28, 20.21, and 14.86. Together, they add up to 100 percent.
+
+To find all time below range, we add the two low groups. The answer is 3.65 percent. To find all time above range, we add the two high groups. That gives 35.07 percent. Using only the high group would miss the very high readings.
+
+The report also shows a CV of 0.41. CV describes how much glucose varies. Here, 0.41 means 41 percent. It does not mean 0.41 percent.
+
+GMI means glucose management indicator. It is based on sensor glucose. It is not the same as a laboratory HbA1c result. GRI is another risk measure, not a percentage of time.
+
+These checks are good tasks for a computer program. The language model can then explain the checked results.
+
+The totals do not tell us when the lows happened. To answer that question, we need the time chart and the daily records.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What happens if the report leaves out the very high glucose group?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：29。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_29.png. Supplied CGM example. Metric interpretation: International Consensus on Time in Range (2019). https://pmc.ncbi.nlm.nih.gov/articles/PMC6973648/
+
+
+---
+
+## SLIDE 30 — Interpreting the Ambulatory Glucose Profile
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+前一頁已確認指標與加總，現在回到時間分布，檢查哪些型態能支持報告中的敘述。
+
+AGP 把多天資料疊在同一個二十四小時座標上，讓我們看出典型時間型態與變異。中位數代表中央趨勢，較深與較淺的帶狀區域則呈現不同分布範圍。帶子很寬，可能表示每天情境不同，而不是每一天都出現同樣的波動。
+我會先看低血糖風險所在的時段，再看反覆高血糖與變異，最後回到每日曲線確認。不要只看一條平滑中位數，就忽略某幾天的重要事件。圖形上的上升也不能直接命名成早餐或晚餐效應，除非有時間一致的用餐紀錄。資料天數、感測器缺漏與作息差異，都應在正式報告中說明，才能避免過度解讀漂亮的圖形。
+
+【延伸說明】
+例如中位數看起來穩定，但分布下緣接近低血糖區域，就需要查看哪些日子造成這個型態。可能是少數特殊事件，也可能是規律問題。兩者需要不同追問，因此 AGP 的角色是引導我們回到資料，而不是取代所有逐日判讀。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：哪一段看起來需要回到逐日曲線，而不能只靠 AGP 下結論？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「An Integrated CGM Interpretation」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+AGP stands for ambulatory glucose profile. It puts glucose data from several days onto one twenty-four-hour chart. This helps us find patterns that may repeat at similar times.
+
+The middle line shows the median, or middle value. The shaded areas show how widely the readings spread. A wide area means the days can be quite different.
+
+We should not assume that every day looks like the middle line. A few important low-glucose events may be hidden by an otherwise steady-looking summary.
+
+I first look for times when glucose may be too low. Then I look at repeated highs and wider shaded areas. After that, I return to individual days to understand the pattern.
+
+A rise near lunchtime does not prove that lunch caused it. We still need meal and medication times. We should also check the number of days and any gaps in sensor use.
+
+For example, a wide band at night may come from only a few unusual nights. Or it may show a problem that happens often. These need different follow-up questions.
+
+The AGP helps us decide where to look more closely. It does not replace the daily data.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which part of this chart would you check in the daily records?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_30.png. Supplied CGM example. Metric interpretation: International Consensus on Time in Range (2019). https://pmc.ncbi.nlm.nih.gov/articles/PMC6973648/
+
+
+---
+
+## SLIDE 31 — An Integrated CGM Interpretation
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+最後把數字與圖形轉成一份臨床摘要，讓醫師快速找到值得追問的問題。
+
+這張把前面的指標整理成敘述：平均血糖約一百六十五點五、GMI 七點二七、TIR 六十一點三、總 TAR 三十五點一，以及 CV 約四十一。這樣的摘要能幫助門診快速掌握問題，但每個數字都要使用相同期間與範圍定義。GRI 則是另一種風險整合指標，不能直接當作血糖百分比。
+投影片還包含胰島素紀錄的時間與劑量。這裡要特別小心，記錄次數不等於血糖事件次數，時間標記也可能是輸入時間而非實際注射時間。在討論重複注射或胰島素堆疊之前，必須確認胰島素種類、原始處方與真實執行時間。好的 AI 摘要應把這些不確定性列出來，避免用不完整紀錄推導過度確定的用藥結論。
+
+【延伸說明】
+可以讓報告最後附上兩到三個最值得詢問的問題，而不是列出所有可能原因。例如先確認注射時間與餐食，再判斷是否需要其他檢查。好的摘要應該縮小臨床對話的焦點，同時保留重要的不確定性。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：在提出劑量調整前，這份摘要還缺哪三項最重要的背景資料？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「AI-Assisted Medical Education」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This page combines the numbers and the chart into a clinical summary. It shows mean glucose near 165.5, GMI near 7.27, time in range near 61.3 percent, and time above range near 35.1 percent.
+
+The CV is about 41 percent. These values should all come from the same period and use the same glucose ranges. Otherwise, the summary may look clear while mixing different information.
+
+The report also includes insulin entries. We need to be careful with their meaning. An entry time may be the time someone typed the record, not the time insulin was actually given. The number of entries is not the number of glucose events.
+
+Before discussing repeated doses, we need the insulin type, the prescribed plan, and the real injection times. Incomplete records can lead to the wrong explanation.
+
+A useful report ends with a few clear questions. For example: “Was this dose actually taken?” or “When did the meal start?” We do not need a long list of every possible cause.
+
+The aim is to help the visit move forward. AI should make important gaps easier to see, so the clinician and patient can resolve them together.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which missing detail would you ask about first?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_31.png. Supplied CGM example. Metric interpretation: International Consensus on Time in Range (2019). https://pmc.ncbi.nlm.nih.gov/articles/PMC6973648/
+
+
+---
+
+## SLIDE 32 — AI-Assisted Medical Education
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+生成式 AI 的另一個重要應用，是縮短醫學新知整理成教材的時間。醫師、住院醫師、Fellow、衛教師與患者需要的深度不同，同一份研究不適合只換個標題就直接給所有人使用。
+在專業端，可以先整理指引更新、研究設計、主要結果與限制，再形成病例討論大綱、課程摘要或投影片草稿。在患者端，則把同一個概念改寫成容易理解的日常說明。原稿提到用藥機轉的轉譯，這確實是適合的例子，但任何生活建議仍要保留適用條件，不能把簡化變成一體適用的指示。
+我希望 AI 協助的是內容重組與版本製作，教師則負責學習目標、證據核對與難度。若要評估效果，可以讓學習者用新病例回答問題，而不是只計算觀看次數或教材數量。這樣才能知道知識是否真的被理解，並用於下一個情境。
+
+【延伸說明】
+例如教導 TIR，可以先請醫學生解釋定義，再給兩份平均血糖相近但低血糖不同的報告，請他比較。對病人則可以從自己的日常時間開始說明。AI 可以協助產生不同版本，但教師應確認每個版本真的符合原本的學習目標。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：同一個 CGM 主題，給醫學生與給病人的學習目標會有什麼不同？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Turning Conference Content into Learning Resources」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+AI can also help us prepare teaching material. The same research may be useful to doctors, trainees, diabetes educators, and patients. But each group needs a different explanation.
+
+For doctors, we may focus on the study design, results, and limits. For patients, we may explain what the idea means in daily life. Changing the title alone is not enough. We need to change the depth and wording.
+
+We should first decide what the learner needs to understand. Then we can choose a short summary, a case, a picture, or a set of questions.
+
+For example, students can compare two CGM reports with similar average glucose but different amounts of low glucose. Patients may learn better by looking at their own day and discussing one change.
+
+AI can help write these different versions. The teacher still needs to check the source, the correct answer, and the level of difficulty.
+
+The number of slides or videos does not show whether people learned. A better test is to give a new case and ask the learner to explain what they would look for.
+
+The goal is clear understanding that people can use in another situation.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How would you explain the same CGM idea to a student and to a patient?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：32。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_32.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 33 — Turning Conference Content into Learning Resources
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+每次大型學術會議之後，團隊都會面對大量影片、投影片與摘要。以前往往需要逐一聽寫、整理與錄製，等教材完成，臨床同仁已經累積了更多待讀資料。這張以 ADA 2026 為例，介紹一套從會議來源到多媒體教材的工作流程。
+核心概念是同一份已核對的內容，轉成不同形式：專業摘要、微課程、音訊與社群說明。流程不需要綁定某個模型品牌，但每個工具的輸入與輸出都要能接續，也要保留原始來源與版本。
+接下來會看到轉錄、臨床摘要、文字加圖像的雙重輸入，以及聲音與投影片的組裝。這是一套可逐步自動化的流程，不能從示意圖就宣稱幾分鐘內完成所有工作、完全不需要人工覆核。會議發表與正式論文也可能有差異。把來源與限制保留到最後一份教材，才是醫學知識轉譯值得追求的效率。
+
+【延伸說明】
+製作時可先選一場演講完成整個流程，記錄最常出錯的環節，再擴大到更多場次。如果轉錄中的藥名常錯，就先改善詞彙與核對，而不是同時產出大量影片。小規模完成一個可查證的範例，比大量未確認內容更容易累積品質。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：會議摘要轉成教育影片時，哪一種錯誤最可能被反覆傳播？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「A Conference Knowledge Hub」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+After a large medical meeting, we often have many videos, slides, and abstracts to review. Preparing teaching material from them can take a long time.
+
+This slide uses ADA 2026 as an example of a more organized process. We start with the meeting sources. We turn speech into text, prepare a checked summary, and then make different teaching formats.
+
+One topic may become a professional summary, a short video, or an audio lesson. The source information should stay with each version.
+
+The process does not need to depend on one model brand. But the tools still need to work together, and their output needs checking. We should not assume that every step is fully automatic or can be finished in a few minutes.
+
+A meeting presentation may also differ from the later research paper. We should say what source we are using and when it was available.
+
+A practical start is to complete one talk from beginning to end. Check where errors appear. If drug names are often wrong in the transcript, fix that step before making many videos.
+
+The aim is to save repeated work while keeping the science clear and easy to check.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which step would you check most carefully before sharing a teaching video?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：33。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_33.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 34 — A Conference Knowledge Hub
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+前面介紹會議影音流程，這裡先看資料入口：來源如何集中、查找與標示處理狀態。
+
+這個畫面示範把會議內容集中到可瀏覽的知識入口。投影片上的場次、演講與存檔數量，是該畫面的資料快照，不代表目前所有內容都已經完整涵蓋或持續更新。入口的價值在於讓使用者找到資料，並知道每筆內容的來源與處理狀態。
+我會把索引資料與醫學內容分開檢查。標題、講者、時間與主題標籤正確，只表示容易找到；摘要與結論是否可靠，仍需要另一層核對。使用者應能看見原始連結、摘要版本，以及尚未完成或待確認的項目。這樣的設計讓知識中心成為可靠的導航，而不是一個看似完整卻無法追溯的答案集合。
+
+【延伸說明】
+可以在每筆資料加上簡單狀態，例如只有索引、已有摘要、已完成核對。使用者因此知道目前能期待什麼，也不會把尚未完成的項目當作沒有相關證據。這種透明度，比單純展示資料總數更能建立使用信心。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：除了搜尋框，哪個資訊最能幫助使用者判斷一筆摘要是否值得信任？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Searchable Conference Sessions」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This screen shows a central place to find meeting resources. It brings sessions, talks, and stored material together.
+
+The counts on the screen describe that page at that time. They do not prove that every meeting talk is included or that every summary has been checked.
+
+We need to separate two questions. Can users find the material? And is the content correct? A correct title and speaker name help with the first question. They do not answer the second.
+
+Each item should show its original source and its status. For example, we can label it “title only,” “summary ready,” or “checked.” Then users know what they can expect.
+
+It is also helpful to show the summary date. If the source changes, the team can see which version may need review.
+
+Imagine searching for a topic and finding no summary. That may mean the work is not finished. It does not mean there is no evidence on the topic.
+
+A useful resource page helps people reach the original material, understand what has been prepared, and know what still needs checking. A large number on the front page is not enough.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What label would help you know whether a summary has been checked?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_34.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 35 — Searchable Conference Sessions
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+找到入口之後，使用者還需要搜尋到真正相關的場次與演講。
+
+搜尋功能要配合醫師真正會問的問題，而不只是找標題。使用者可能依疾病、藥物、研究設計、講者或臨床問題尋找內容。因此索引應保留原始標題，同時加入一致的主題分類與適當的同義詞。
+資料整理時，也要避免把場次、單一演講與論文混成同一筆。場次主持人不一定是研究作者，議程時間也可能涉及不同時區。如果這些欄位混淆，後續引用與行程判斷都會出錯。我會用幾個真實問題測試搜尋，例如找某一族群的隨機試驗，再檢查結果是否包含正確比較組，而不只是因為標題出現某個藥名。
+
+【延伸說明】
+請用一個真實臨床問題測試搜尋，而不是只輸入完整演講標題。若搜尋結果太多，分類應幫助縮小族群與研究設計；若沒有結果，系統應承認目前資料不足。不能因為搜尋不到，就推論這個問題沒有研究。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：你最常想搜尋的，是一個藥名，還是一個尚未解決的臨床問題？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「A Multimedia Learning Library」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+A good search tool should match the way clinicians ask questions. We may search for a disease, a drug, a patient group, or a problem we have not solved.
+
+We may not remember the exact title of a talk. The system should therefore keep the original title and add clear topic labels. Common everyday words and medical terms should lead to useful results.
+
+We also need to keep different types of records separate. A meeting session may contain several talks. The chair of a session may not be the author of a study. A talk is not always the same as a published paper.
+
+Dates and times also need care, especially when meetings use different time zones.
+
+To test the search, use a real question from your clinic. For example, try to find a trial in a particular patient group. Then check whether the results really match the question.
+
+If there are too many results, useful filters can narrow them. If nothing is found, the system should say that its collection may be incomplete.
+
+The goal is to help the user find relevant evidence, not just a page containing the same drug name.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What real clinical question would you use to test this search?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_35.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 36 — A Multimedia Learning Library
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+搜尋結果可以進一步整理為主題資源，提供不同深度與形式的學習入口。
+
+同一個主題可以提供文字、音訊、影片與投影片，讓使用者依情境選擇。門診前可能適合快速摘要，通勤時可能聽音訊，教學時則需要圖表與原始數據。這些形式可以共享同一份結構化內容，但每個版本都需要保留來源與更新資訊。
+要特別注意，多個媒體格式不是多份獨立證據。一份研究被做成四種內容，仍然只有一份研究。如果原始摘要發現錯誤，應能追蹤並更新所有衍生版本。卡片式介面很容易讓人快速瀏覽，但標題不應把不確定結果改寫成確定療效。我會以「能找到、能理解、能回查」三個標準，評估這個學習資源庫。
+
+【延伸說明】
+同一張主題卡片最好能通往不同深度：先看短摘要，需要時再進入完整內容與原始來源。這讓時間有限的人快速掌握，也讓想深入的人有路徑可走。不同深度的版本應保持相同結論與限制，不能越短越肯定。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：原始研究更正後，如何找出所有需要同步更新的影片與摘要？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Step Two: Extracting Narrative and Clinical Meaning」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This page offers several ways to learn about one topic. A user can read a summary, listen to audio, watch a video, or use slides for teaching.
+
+Different formats fit different situations. A short summary may help before clinic. Audio may fit a commute. A figure may be better for a group discussion.
+
+All versions should come from the same checked content. A shorter version should keep the main limits of the result. It should not sound more certain simply because it is shorter.
+
+We also need to remember that several formats are not several studies. One paper turned into four resources is still one piece of evidence.
+
+If an error is found, we should be able to locate every version that used it. Otherwise, we may fix the text while leaving an old video online.
+
+A useful topic card can offer a short overview first, then a longer explanation and the source. This lets users choose how deeply to read.
+
+The main questions are simple. Can people find the resource? Can they understand it? Can they check where it came from? Those are better goals than simply filling the page with more content.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. If a study is corrected, which versions would need updating?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_36.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 37 — Step Two: Extracting Narrative and Clinical Meaning
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+取得會議影片後，先把音訊轉成逐字稿，再提煉臨床摘要。逐字稿保留講者原話，但也包含重複與口語停頓，不能直接把所有文字當成教學主線。這一步的目的，是建立後續教材共同使用的敘事架構。
+AI Studio、Gemini 或 Codex 可以協助整理研究問題、族群、介入、比較組、終點與限制。重要數字應保留來源時間或頁碼，特別是樣本數、絕對與相對效果、P 值及信賴區間。只有音訊時，不能宣稱已經讀到森林圖細節；缺少的圖表要回到投影片補足。
+最後形成結構化中文摘要，也可以建立英文對照。這份摘要是後續製作的共同底稿，但不是自動產生就成為黃金標準。人工核對後，才能用來產生旁白、題目與視覺內容。若發現原始資料或翻譯有誤，也應回到共同底稿修正，避免不同版本各自發展成不同結論。
+
+【延伸說明】
+我們可以先把結果整理成固定欄位，再寫成自然語言。這樣每次生成講稿時，都能核對族群、介入與終點是否被保留。若某個欄位來源不清楚，先標記待確認，不要讓模型用常見研究格式把空白補滿。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果轉錄文字與投影片數字不同，哪一步應暫停並回查原始來源？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Dual Inputs for NotebookLM」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+The first text from a video is usually a transcript. A transcript records the spoken words. It may include repeated points, pauses, and sentences that are hard to read.
+
+The next step is to turn it into a clear clinical summary. Tools such as Gemini or Codex can help organize the study question, patient group, treatment, comparison group, results, and limits.
+
+We need to keep the important numbers. Sample size, follow-up time, and the size of the treatment effect should stay linked to the source page or video time.
+
+Small words matter too. “No clear increase” is different from “no increase.” A missing word can change the message.
+
+Audio alone may not explain a chart fully. If the speaker points to a forest plot without reading every number, we need the original slide as well.
+
+After review, the summary becomes a shared starting point for scripts, questions, and teaching slides. It is not automatically correct because AI wrote it.
+
+When we find an error, we should correct this shared summary first. That helps keep the later Chinese, English, audio, and video versions consistent.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What would you do if the spoken result and the slide number do not match?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：37。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_37.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 38 — Dual Inputs for NotebookLM
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+文字摘要容易保留主線，卻可能漏掉圖表的細節。因此這一步將完整 Summary Markdown 與原始投影片圖像一起提供給來源導向工具。原稿稱為雙重輸入，我們可以把它理解成用兩種形式保留同一場演講的不同資訊。
+文字說明研究問題與結果，圖像補充曲線、座標、表格與註腳。提示詞可以要求工具擷取重要圖表，但仍要檢查它是否真的讀對比較組與數字。像 Kaplan–Meier 曲線，還需要看風險人數與追蹤時間，不能只依兩條線的距離下結論。
+這個做法可以改善來源完整度，不能保證完全沒有幻覺，也不需要宣稱是獨有發明。若文字與圖片不一致，應把差異標出來並回查，而不是讓模型自行選擇。後續所有媒體內容，都應能沿著摘要與圖像的來源連結，回到原始證據。
+
+【延伸說明】
+如果圖表與口頭說明看似衝突，可以把兩者並列成待確認問題，而不是讓模型自行選一個。回到影片前後文，常常能發現講者是在談次群組或不同時間點。保留這個核對過程，有助於之後的教材更新。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：雙重輸入的目的，是增加資料量，還是讓兩種來源互相核對？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Final Video Assembly」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+A text summary tells the main story. But it may leave out details from a chart. This is why we use two inputs: the written summary and the original slide images.
+
+The text helps organize the explanation. The images show the lines, labels, tables, and small notes. Together, they give the tool more of the original information.
+
+We can ask NotebookLM or another tool to check important charts and values. But the request itself does not prove that the tool read them correctly.
+
+For example, a survival curve needs more than a quick look at two lines. We also need the follow-up time and the number of people still being followed.
+
+If the text and the image disagree, we should stop and check the source. The model should not simply choose the version that sounds better.
+
+Using both inputs can reduce missing information. It cannot promise that every later answer will be correct.
+
+The final teaching material should still point back to the source. This lets the teacher check a key statement and helps the team update the material when new information appears.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which detail in a chart is easiest to lose in a text summary?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：38。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_38.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 39 — Final Video Assembly
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+接下來把音訊與精選投影片組裝成影片。原稿提出將 NotebookLM Audio Overview 與重新整理的視覺內容配合，這能減少部分重複剪輯工作。重點不是固定每幾秒換一頁，而是讓講到的內容與正在顯示的圖表一致。
+例如旁白開始說明某個研究終點時，畫面應出現對應結果，而且保留足夠時間讓觀眾看清座標、比較組與限制。語意比對可以協助尋找對應片段，但同步是否正確、字幕與數字讀音是否一致，都要實際播放確認。
+這張的另一個訊息是精選。對短教材而言，可以挑出與學習目標直接相關的頁面，不需要把整場會議的所有投影片塞進去。不過，刪減不能去掉會改變結論的限制，也不能宣稱少幾張就一定提高完播率。好的輸出應是內容精簡、證據完整，而且觀眾有時間真正理解。
+
+【延伸說明】
+可以請一位沒有參與製作的同事看完整影片，指出哪些地方來不及閱讀或聽不懂。製作者太熟悉內容，常會低估觀眾需要的時間。這種試看特別適合發現字幕與圖表不同步，以及專業縮寫沒有解釋的問題。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果只有一分鐘講一張複雜研究圖，哪些資訊一定不能刪除？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「An Integrated Knowledge Production Architecture」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Now we combine the audio with selected slides. The goal is to show the right figure when the speaker explains it.
+
+A tool may help match the meaning of the audio with a slide. But we still need to watch the full video. The right image may appear too early, too late, or for too short a time.
+
+When a study result is discussed, viewers need time to read the groups, the axis, and the main numbers. Important limits should be spoken or clearly visible. Tiny text is easy to miss.
+
+We should also check drug names, numbers, and captions. A small spoken error can change the meaning of a medical result.
+
+For a short lesson, we can choose the most useful slides. We do not need to include every page from the original meeting talk. But we must not remove a note that changes the conclusion.
+
+Ask a colleague who did not make the video to watch it. Can they follow the story? Do they have enough time to read?
+
+The final goal is a clear lesson with the needed evidence. Fewer slides alone do not guarantee that people understand more.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Which part of a research chart must stay visible in a short video?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：39。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_39.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 40 — An Integrated Knowledge Production Architecture
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張把整個內容流程放在同一張圖上。左側是影片、音訊與圖像，中間是協助理解與語意對齊的 AI 工具，右側則是可以供教學與發布使用的結構化資源。這讓我們從一次性的剪輯工作，轉向可以重複執行與維護的流程。
+不同模型或代理工具可以負責不同步驟，但替換元件仍需要測試格式、品質與權限，不能假設完全無縫。每一份摘要、音訊與影片，也都需要知道自己來自哪一個來源版本。當研究更正或教材修訂時，才能找到受影響的內容。
+我想強調的是，這個架構的價值不只在產出速度，而是在內容一致與可更新。介面可以簡單，後端的來源關係不能模糊。從研究資料到患者教育，需要逐步調整語言與深度，同時保留結論適用條件。這樣的系統才有機會長期支持團隊，而不只是完成一次展示。
+
+【延伸說明】
+可以把一份研究更正當作演練：輸入更正後，系統能否找出相關摘要、題目與影片？如果只能更新入口頁，卻找不到衍生作品，知識流程仍不完整。這個測試能讓架構是否真正可維護，變成具體可觀察的事情。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：當知識更新時，你希望系統自動找到哪些需要重新檢查的內容？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「The Cost Paradox of Metabolic Surgery」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This diagram shows the whole teaching-content process in one view. Videos, audio, and images enter on the left. AI tools help organize and match the content in the middle. Teaching resources come out on the right.
+
+The value is not only speed. We want a process that we can repeat, check, and update.
+
+Different tools may do different jobs. One may prepare text. Another may make audio. Another may match the slides. If we replace a tool, we still need to test that the next step works properly.
+
+Every output should show which source and version it used. Suppose a research paper is corrected. We need to find the summary, questions, and videos that used the old result.
+
+If we can only update the main page but cannot find the videos, the process is still hard to maintain.
+
+The user may see a simple page. Behind that page, the links between sources and outputs need to stay clear.
+
+As we move from research to patient education, we can make the language easier. But the important conditions and limits must remain. That is how this process can support teaching over time.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How would you find every teaching resource affected by a corrected study?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：40。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_40.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 41 — The Cost Paradox of Metabolic Surgery
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張以代謝手術的成本作為教材轉譯範例，示範如何保留複雜概念的必要條件。
+
+這張以代謝手術說明成本評估的時間尺度。手術的初期支出較集中，藥物與慢性照護的成本則可能持續累積。因此只看第一年的費用，和採用較長時間範圍，可能得到不同的判斷。這是一個經濟評估的概念圖，不是某一位病人的實際成本預測。
+要討論是否划算，還需要比較對象、族群、併發症、後續追蹤、藥物使用、生活品質與折現等假設。成本效果較佳也不等於一定省錢；有些介入增加成本，同時帶來值得支付的健康效益。這張的教育價值在於提醒聽眾問對問題，而不是宣稱所有病人接受手術都會在固定年限內節省同樣費用。
+
+【延伸說明】
+同一項介入，從醫院、保險支付者或病人的角度，成本項目可能不同。病人還可能考慮交通、照顧與工作時間。因此當圖表談二十年成本時，我會先問它站在哪個角度，再看哪些項目被納入或省略。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：「值得支付」和「可以省錢」是同一件事嗎？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來看結構化微課程與能力評估，將同樣的教材整理方法帶入專業訓練。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide uses metabolic surgery to explain why the time period matters when we compare costs.
+
+Surgery has a large cost near the beginning. Medicines and ongoing care may create costs year after year. A comparison over one year can therefore look different from a comparison over twenty years.
+
+The picture shows this idea. It is not a cost prediction for one patient, and it does not prove that surgery always saves money.
+
+We need to ask what the comparison includes. Which treatment is the other choice? What follow-up, complications, and medicines are included? Whose costs are we counting: the hospital's, the payer's, or the patient's?
+
+Patients may also consider travel, time away from work, and help at home. These costs may not appear in a hospital bill.
+
+There is another useful distinction. A treatment can be worth its extra cost without saving money. It may cost more and still provide important health benefits.
+
+When using AI to explain this figure, we should keep these conditions clear. The lesson is to ask better questions about the cost comparison, rather than promise the same financial result for everyone.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Does “worth the cost” mean the same thing as “saves money”?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_41.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 42 — Structured Microlearning and Clinical Competency
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張畫面實際展示的是十四章的甲狀腺與頸部超音波課程，從儀器參數、正常解剖、結節判讀，到穿刺與報告品質。原稿想延伸的重點，是把這種有分類、有學習目標的教材架構，移用到糖尿病科技教育。兩者可以共用方法，但不能把畫面說成已完成的十四章糖尿病課程。
+我們可以規劃把 CGM 判讀、AGP 分析、幫浦操作與孕期照護拆成較短單元。每個單元搭配一段短影片、一張重點圖卡、一個病例與幾個測驗題，這是可採用的教學設計，而不是目前畫面已驗證的固定規格。
+學習紀錄能幫助教師發現哪個概念需要補強，但看完影片或通過幾題測驗，不能保證臨床能力。實際操作、病例推理與監督回饋仍然必要。這一頁希望傳達的，是將大量影音整理成清楚的學習路徑，再用可觀察的任務評估學習成果。下一頁回到超音波影片，看看單一素材如何變成結構化知識。
+
+【延伸說明】
+可以在每個章節後安排一個可觀察的任務，例如描述一張未看過的影像，或說明還需要哪些切面。這比只詢問是否看完影片，更能了解學習成效。教材也應允許教師依學習者常見錯誤，調整下一次示範內容。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：看完影片之後，如何確認學習者真的具備掃描或判讀能力？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Thyroid Ultrasound: From Video to Knowledge」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This screen shows a fourteen-chapter course about thyroid and neck ultrasound. It covers machine settings, anatomy, image findings, procedures, and report quality.
+
+The wider idea is useful for diabetes education too. We can take a large amount of information and organize it into a clear learning path. But this screen is an ultrasound example. It does not show a completed diabetes course.
+
+For diabetes training, we could create shorter lessons on CGM, glucose reports, pump use, and pregnancy care. A lesson might include a short video, a key-point picture, a case, and a few questions.
+
+The important step is to decide what learners should be able to do. Watching a video is not the same as being able to use a pump or read a report safely.
+
+We can ask learners to explain a new case or show a practical skill. Their answers help teachers see what needs more work.
+
+AI can help sort the material and prepare drafts. Teachers still check the content and observe performance. A few quiz answers cannot guarantee clinical skill.
+
+The goal is a clear course with useful practice and feedback, rather than simply a larger video collection.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What task would show that a learner can use the lesson in practice?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件延伸為糖尿病微課程構想；本頁畫面為甲狀腺超音波課程，講稿區分實例與可移用的教學設計。
+Original supplied slide image, Slide_42.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 43 — Thyroid Ultrasound: From Video to Knowledge
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+前一頁展示課程架構，這一頁回到單一甲狀腺超音波影片，說明如何整理成可回查的教學內容。
+
+這張以甲狀腺超音波影片示範，把影像片段轉成結構化教學內容。像彗星尾等回音特徵，必須放回結節、背景與影像條件中理解，不能只靠一個擷取畫面就完成風險分類。影像上的亮點也不應被模型自動命名成某一種病理。
+我會保留原始動態片段、擷取時間與必要的掃描條件，再讓 AI 協助產生描述或教學問題。教師應核對標記是否真的指到目標，文字是否過度確定，以及是否需要其他切面確認。這個例子展示的是知識整理與教學流程，並不是證明模型具備獨立診斷甲狀腺疾病的準確率。
+
+【延伸說明】
+教學時可以先隱藏文字標籤，請學習者描述看到的現象，再顯示經核對的說明。描述與診斷分開，有助於減少被標籤帶著走。若 AI 的標註有疑問，就回到原始影片討論，而不是要求學生接受看起來很專業的答案。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：哪些影像特徵一定要回到動態影片或其他切面確認？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Conclusion」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This example starts with a thyroid ultrasound video. We want to turn the video into teaching material that is easy to find and check.
+
+A short clip can show an image feature better than a single still picture. We should keep the original clip and the time at which the teaching image was taken.
+
+AI can help describe the image or prepare a question. But a bright spot should not automatically become a diagnosis. Features such as a comet-tail appearance need the surrounding image and the clinical setting.
+
+We should check whether the arrow points to the correct place. We should also ask whether another view is needed. The wording should match what we can actually see.
+
+One teaching method is to hide the label first. Ask the learner to describe the image in their own words. Then show the checked explanation and discuss the difference.
+
+If the AI label seems wrong, return to the video. Do not accept it only because it sounds professional.
+
+This slide shows a way to organize and teach from medical video. It does not prove that the model can diagnose thyroid disease on its own.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What would you check in the original video before accepting the label?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_43.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 44 — Conclusion
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+各位同道，今天我們從患者的一張餐盤照片，談到對話式衛教、AID、胰島素調整支持，再延伸到 CGM 報告與醫學教育。這些應用的成熟度不同，但都回到同一個問題：能否讓照護團隊更容易理解資料，並把時間留給需要溝通與判斷的地方？
+LLM 可以協助將非結構化內容整理為清楚的敘述，多模態工具可以降低部分記錄負擔，數位流程則可以幫助追蹤與教材更新。但資料相關不等於因果，使用感受不等於療效，系統架構也不等於已完成臨床驗證。
+因此，我們希望建立的是由專業團隊負責的教育與個案管理流程。計算有可重現的方法，重要結論有來源，參數與處方由適當的臨床人員確認，遇到不確定性有清楚的處理路徑。未來的第一步，可以先選一項範圍明確的工作，測量它是否改善時間、品質與使用經驗，再逐步擴展。謝謝各位，接下來歡迎討論與交流。
+
+【延伸說明】
+如果只帶走一個行動，我建議把目前最耗時的一項工作畫出步驟，找出其中重複且容易核對的部分。先改善這一段，並量測結果。當團隊能說明工具為什麼有幫助、哪些情況不適用，再擴大範圍會更踏實。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：明天回到工作現場，你最願意先改善哪一個小而明確的問題？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來保留一頁討論轉場，後面是可依提問選用的補充資料。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+Let me close with the main points. We started with a meal photo and moved through chatbots, insulin support, CGM reports, and medical education.
+
+These tools do different jobs. Some are ready for a limited role. Others still need more testing. We should judge each one by the problem it is meant to solve.
+
+AI can help put scattered information together. It can help explain medical ideas and prepare a first draft. That may give the team more time to listen and think.
+
+But a clear answer can still be wrong. A link between two things does not prove that one caused the other. A good survey response does not prove a clinical benefit.
+
+We need clear sources, checked calculations, and a defined person responsible for review. Treatment decisions need the right clinical oversight. When information is missing, the system should say so.
+
+A good first step is one small task. We can measure time, errors, patient experience, and staff workload. Then we can decide whether to improve the process or use it more widely.
+
+Thank you for listening. I hope these examples help you choose one useful next step for your own team.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What is one small AI project you would try in your own setting?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us pause for discussion. The next slides provide extra details if needed.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：44。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_44.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 45 — Discussion and Transition
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+在主要結論之後，我們利用這張空白轉場頁，留一點時間把概念帶回自己的照護與教學情境。
+
+這張刻意保留空白，讓大家暫時離開資訊密集的圖表，思考一個自己的應用情境。請先選一個反覆出現的問題，例如病人傳來餐點照片、團隊需要整理兩週 CGM，或教師要把一場演講轉成教材。現在先不要選模型，也不要先決定要買哪一個軟體。
+請用半分鐘定義：使用者是誰、現在卡在哪裡，以及改善之後應該看到什麼結果。接著想一想，哪些資料已經存在，哪些需要補充；系統可以自動完成哪一步，哪一步需要人確認。最後請選一個可以在小規模試辦中量測的指標，例如整理時間、資料完整度或需要更正的比例。這個練習的目的，是把今天的概念轉成一個可以負責、可以檢查的工作流程。
+
+【延伸說明】
+現在請把剛才選的指標再具體化。例如「比較有效率」可以改成「每份報告準備時間」，「比較正確」可以改成「需要更正的重要敘述比例」。請一位聽眾分享，其他人協助指出還缺的資料。最後用一句話記下試辦的第一步。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：請用一句話描述你的試辦：為誰解決什麼問題，如何知道真的改善？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+若需要更深入討論，接下來可選看滴定研究、孕期追蹤與教材發布的補充頁。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide is blank on purpose. Let us take a short break from the figures and think about your own work.
+
+Choose one repeated task. It could be reviewing meal photos, preparing a CGM report, answering a common question, or turning a lecture into teaching notes.
+
+Before choosing an AI tool, describe the problem. Who does the task now? Which part takes too much time? What would a better process look like?
+
+Next, think about the information you already have. What is missing? Which step could a computer help with? Which step still needs a person to check it?
+
+Now choose one way to measure improvement. “More efficient” is too broad. We could measure minutes needed for one report. “More accurate” could mean fewer important sentences needing correction.
+
+Please take a moment to form a one-sentence plan. For example: “We will help our educators prepare meal summaries and check whether preparation time falls.”
+
+We do not need to solve everything today. The aim is a small project with a clear owner and a clear test of whether it helps. After this discussion, we can use the extra slides for questions.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Who would use your project, and how would you know it helped?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+We can now look at the extra study and case slides.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件本頁無原講稿；依投影片內容及前後文補充。
+Original supplied slide image, Slide_45.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
+
+## SLIDE 46 — Appendix: Clinician and Patient Feedback
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張備用頁讓我們更詳細看數位滴定工具對醫患互動的影響。原稿描述的是小型使用經驗調查，畫面分成醫護與患者兩側。它最適合回答「大家覺得哪裡有幫助」，而不是直接回答「血糖改善多少」。
+醫護端約 71% 的回覆認為電話聯繫頻率減少，約 70% 認為滴定較簡化或較能掌握患者狀態。患者端約 71% 認為更理解胰島素治療，也有相同比例覺得醫師更了解自己；68% 感到操作更安心。這些是主觀回覆比例，不能改說實際工作量下降七成，或自信心提高六成。
+實務上，我會進一步詢問安心感來自哪裡：是知道下一步怎麼做，還是以為醫師正在即時監看？兩者對服務設計很不同。也要納入未完成使用者的意見，避免只聽到滿意的人。這份調查提供的是改善介面與溝通的線索，正式導入仍應搭配工作量、退出原因與臨床結果。
+
+【延伸說明】
+如果病人說更安心，可以進一步問：是因為知道下一步、比較容易聯絡團隊，還是誤以為有人持續監看？同樣的滿意度背後，可能有很不同的原因。了解原因，才能保留真正有益的功能，也修正可能造成誤會的期待。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：這個工具減少的工作，有沒有可能只是轉移到另一個人身上？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Appendix: A Separate Titration App Trial」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This extra slide gives more detail about how clinicians and patients felt about an insulin-adjustment app.
+
+On the clinician side, about 71 percent of responses reported fewer phone contacts. About 70 percent reported easier dose adjustment or a better view of the patient's condition.
+
+On the patient side, about 71 percent reported better understanding of insulin. A similar number felt that the clinician knew more about their health. About 68 percent felt more confident handling treatment.
+
+These numbers describe people's answers to a survey. They do not show that phone calls fell by 71 percent. They also do not measure how much confidence increased.
+
+The sample was small, so we should be careful about applying the result to everyone. We also need to hear from people who stopped using the app.
+
+If a patient feels safer, ask why. Is the plan clearer? Is it easier to contact staff? Or does the patient think someone is always watching the data?
+
+The survey can help improve the service. It should be considered together with real workload, reasons for stopping, and glucose results.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What might make a patient feel safer even without better glucose control?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：46。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_46.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results. For exact study citation and numerical details, consult the original reference printed on the supplied image. These appendix studies must not be pooled with the Insultrate trial.
+
+
+---
+
+## SLIDE 47 — Appendix: A Separate Titration App Trial
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+再看較直接的療效證據。這是 My Dose Coach 的德國多中心、開放標籤隨機試驗，追蹤十二週，比較手機應用程式與書面基礎胰島素滴定計畫。共 251 位參與者，介入組 128 位、對照組 123 位。這與前面 Insultrate 的二十四週研究是不同試驗。
+研究報告模型調整後，App 組 HbA1c 較書面計畫組多下降約 0.31 個百分點，P 值 0.0388。請注意是百分點，而不是相對降低 31%。兩組都有改善，說明結構化滴定與通常照護本身也有作用。
+右側散點圖顯示個別反應與起始 HbA1c 的關係，但不能單憑散點就宣稱每一種基線程度都顯著受益。對臨床應用，還要看患者能否操作、團隊提供什麼支持，以及低血糖與治療負擔。這個結果支持該工具在研究條件下有額外改善，也提醒我們把演算法、教育與照護安排一起評估。
+
+【延伸說明】
+在比較兩篇研究時，可以先做一個簡單對照：族群、介入、對照、時間與結果定義。只有這些條件足夠相近，才適合進一步討論效果差異。這也是教學生閱讀數位醫療研究時，很實用的一個練習。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：如果兩個研究起始 HbA1c 不同，能直接用下降幅度判斷哪個工具比較好嗎？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Appendix: Interpreting the Safety Table」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This is a separate trial of My Dose Coach in Germany. It compared an app with a written plan for basal insulin dose changes.
+
+The study lasted twelve weeks and included 251 people. There were 128 in the app group and 123 in the written-plan group. Patients and staff knew the group assignment.
+
+The app group had an extra HbA1c fall of about 0.31 percentage points after the study's adjustment. The reported P value was 0.0388. This is different from saying that HbA1c fell by 31 percent.
+
+Both groups improved. The written plan and the care given to both groups also mattered.
+
+The picture on the right shows individual results against starting HbA1c. It helps us see the spread of responses. It does not prove that every starting level had the same clear benefit.
+
+This is not the same trial as the twenty-four-week Insultrate study discussed earlier. We should not mix their numbers.
+
+The result suggests an added benefit from this app under these study conditions. Before using it in our clinic, we should also consider low glucose, ease of use, and the support patients need.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What should we compare before putting results from two different trials side by side?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：47。依本頁實際畫面調整敘事與適用條件。
+Hermanns et al. Lancet Regional Health Europe. 2023;33:100702. doi:10.1016/j.lanepe.2023.100702. https://pubmed.ncbi.nlm.nih.gov/37954005/
+
+
+---
+
+## SLIDE 48 — Appendix: Interpreting the Safety Table
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+療效之外，必須同時看安全性。這張表格來自同一項十二週試驗。任何不良事件為對照組 16 人、介入組 13 人，分別約 13.0% 與 10.2%；這個差異沒有達到統計顯著，不能因此說介入已證明比較安全。
+研究期間兩組沒有觀察到嚴重低血糖，但嚴重低血糖與單純數值小於 54 mg/dL 不同：前者涉及需要他人協助的臨床事件，後者是重要的生化低值。表格另列每千次量測中小於 54 mg/dL 的頻率，約為 1.2 與 1.1 次，這個分母是量測次數，不是病人人數或人年。
+大於 250 mg/dL 的讀值頻率在介入組數值較低，也要一起看估計不確定性。這份資料沒有顯示明確增加風險的訊號，但十二週、有限樣本與少見事件，不能排除所有風險。正式使用後，持續監測、患者教育與回報管道仍然需要保留。
+
+【延伸說明】
+如果追蹤時間不同，直接比事件數可能不公平；如果同一人發生多次事件，直接比人數又可能忽略負擔。請聽眾指出表中哪一列回答哪一種問題。這樣閱讀表格，能把抽象的統計單位連回臨床經驗。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：表中沒有顯著差異時，信賴區間還允許多大的可能風險？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Appendix: Frequency of Use and Outcomes」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This table shows safety results from the twelve-week trial. We should read it together with the HbA1c result.
+
+Any adverse event was reported in sixteen people in the control group and thirteen in the app group. That is about 13 percent and 10.2 percent. The difference was not statistically clear. We should not call the app safer based only on these numbers.
+
+Neither group had an observed severe low-glucose event. Severe hypoglycemia means an event in which the person needs help from someone else. It is not the same as every reading below 54 milligrams per deciliter.
+
+The table separately counts low readings per thousand measurements. The values are about 1.2 and 1.1. Notice the unit: measurements, not patients and not years of follow-up.
+
+High readings above 250 were less frequent in the app group in the numbers shown. We still need to consider the uncertainty of that comparison.
+
+The study did not find a clear increase in risk. That is useful. But a short study with few events cannot rule out every risk. Education, follow-up, and a way to report problems remain important.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. Does this table show “no risk,” or “no clear extra risk found in this study”?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：48。依本頁實際畫面調整敘事與適用條件。
+Hermanns et al. Lancet Regional Health Europe. 2023;33:100702. doi:10.1016/j.lanepe.2023.100702. Safety data reproduced in the supplied slide and transcript.
+
+
+---
+
+## SLIDE 49 — Appendix: Frequency of Use and Outcomes
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+這張備用圖分析 2,517 位使用者，按照每週使用頻率分成高、中、低三組：高頻超過三天，中頻超過一天至三天，低頻一天以下或等於一天。這是另一份觀察性分析，不能與隨機試驗的分組混在一起。
+請看左側第一組柱狀圖。整體空腹血糖達標比例依序約為 75.1%、26.4% 與 3.7%。另外兩組柱狀圖是不同滴定時間的分層，不是同一組資料的重複。右側空腹血糖平均變化約為負 45.4、負 40.7 與負 31.0 mg/dL。這些數字顯示使用程度與結果有關聯。
+但我們不能因此規定每個人每週使用超過三天，就一定得到相同效果。動機、起始控制、數位能力、資料缺漏與既有支持，都可能影響分組與達標。臨床上可以把低使用當成需要關心的訊號，先詢問障礙，再設計支持；使用頻率也不能直接等同全部治療依從性。
+
+【延伸說明】
+若要進一步研究，可以測試某種支持方式是否增加持續使用，再觀察臨床結果，而不是只比較自然形成的高低使用者。即使如此，也要分開報告參與改變與血糖改變，避免把中間機轉當成已經證明。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：要知道使用頻率是否真的造成改善，下一個研究可以怎麼設計？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Pregnancy Case: Week 23 versus Week 30」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This study looked at 2,517 app users and grouped them by weekly use. High use meant more than three days per week. Moderate use meant more than one day up to three days. Low use meant one day or less.
+
+In the first set of bars, the fasting-glucose target was reached by about 75.1 percent of high users, 26.4 percent of moderate users, and 3.7 percent of low users.
+
+The other sets of bars show groups with different lengths of dose adjustment. We should not read them as three copies of the same result.
+
+On the right, the average falls in fasting glucose were about 45.4, 40.7, and 31.0 milligrams per deciliter. More frequent use was linked with better results in this analysis.
+
+But people were not assigned by chance to use the app more or less. Starting glucose, support, phone skills, and motivation may explain some of the difference. Missing data may matter too.
+
+The lesson is to notice low use and ask about barriers. It is not proof that everyone will get the same result by opening the app more than three days a week.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. How could we help a low-use patient without simply sending more reminders?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：49。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_49.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results. For exact study citation and numerical details, consult the original reference printed on the supplied image. These appendix studies must not be pooled with the Insultrate trial.
+
+
+---
+
+## SLIDE 50 — Pregnancy Case: Week 23 versus Week 30
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+最後回到孕期個案，看看二十三週與三十週的變化。圖中基礎與餐時劑量合計由 25.7 增至 70.7 單位，約成為原來的 2.75 倍。說「變成接近三倍」比「增加三倍」精確，後者容易讓人理解成原來的四倍。另有校正劑量標記時，也要先確認是否已包含在報表總量中。
+增加主要來自餐時部分，由 18 增至 56.7 單位；基礎由 7.7 增至 14 單位。這個分布值得回顧，但不能僅憑兩個時間點就證明餐後阻抗增加了相同比例。還要看飲食、體重、輸注模式與血糖結果，原稿所說「同一碗飯需要三倍劑量」並沒有由這張圖直接證實。
+對患者而言，需求增加可能帶來焦慮。我們可以說明孕期需求會變動，並陪她用資料理解變化，而不是把加量視為失敗。也不應把劑量增加當作胎兒健康成長的證明。團隊要持續確認控制與低血糖，讓每次調整都有實際依據。
+
+【延伸說明】
+把兩個時間點並排時，也要看相近的資料天數、感測器覆蓋與孕期目標。若其中一段只有幾天，另一段有兩週，百分比的穩定度可能不同。病人的用餐與症狀紀錄，可以幫助團隊判斷需求改變的背景。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：要比較兩個孕週的成效，除了總劑量，還要並排哪些指標？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+接下來我們看「Distributing Educational Content Across Platforms」，把這一頁的重點放到下一個情境。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+This slide returns to the pregnancy case. It compares insulin use at twenty-three and thirty weeks.
+
+The basal and meal amounts shown add up to 25.7 units at twenty-three weeks and 70.7 units at thirty weeks. The later amount is about 2.75 times the earlier amount.
+
+It is clearer to say “became almost three times as much” than “increased by three times.” We should also check whether correction insulin is already included in the total.
+
+Most of the increase is in meal insulin, from 18 to 56.7 units. Basal insulin rises from 7.7 to 14 units.
+
+These numbers describe this patient's course. They do not prove that the same bowl of rice needed three times as much insulin. Food intake, weight, pump use, and glucose results also need review.
+
+A rising dose can worry a pregnant patient. We can explain that insulin needs may change during pregnancy. A higher dose does not mean the patient has failed. But it is also not proof that the baby is growing well.
+
+The team should review glucose and low-glucose risk over time. Each change needs a reason based on the patient's current information.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What should we compare besides insulin dose at these two pregnancy stages?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Let us move to the next slide and look at the next part of the topic.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：50。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_50.png. Individual case supplied in the slide. Case settings are descriptive, not a general dosing protocol. Context: ADA Standards of Care in Diabetes 2026, Management of Diabetes in Pregnancy. https://doi.org/10.2337/dc26-S015
+
+
+---
+
+## SLIDE 51 — Distributing Educational Content Across Platforms
+
+中文演講稿（搭配簡單英文版）
+講述安排：約 3–5 分鐘，含圖表解說與 60–90 秒互動。中英文擇一講述。
+
+影片完成後，如何讓需要的人找到它？這張提出以 YouTube 為主要影片入口，再透過 LINE、Podcast 與社群文字摘要提供不同使用方式。原稿稱為瀑布式發布，我們可以把它理解成一份核心內容，配合不同平台做適當轉換。
+第一層保留完整影片、標題、來源與版本；第二層提供音訊或較短摘要，讓同仁在不同情境下學習；第三層用文字重點加連結，引導有興趣的人回到完整內容。這是一個發布設計，是否自動推送、是否能產生連結預覽，都需要依實際平台與權限測試。
+同一份醫療內容面向醫師與病友時，深度與措辭也要重新確認，不能只改長度。更重要的是，觀看次數不等於學習效果或臨床效益。我們可以蒐集觀眾常問的問題、誤解與回饋，再修訂下一版。這樣，發布就成為教材持續改善的一部分，而不只是把影片傳到更多地方。
+
+【延伸說明】
+可以在影片結尾放一個與主題直接相關的問題，觀察觀眾最常誤解哪個概念。回饋不一定要很複雜，重點是能回到教材修改。這樣發布之後的互動就不只是宣傳，而是讓下一次教學更貼近真正需求的資料來源。
+
+【看圖與討論】
+請大家先花約二十秒回看這一頁，找出最支持主要訊息的部分。接著思考：除了觀看次數，哪一個回饋最能幫助你改善下一版教材？
+【停頓與互動 40–70 秒】邀請一位聽眾回答，或由講者以自己的門診／教學經驗回應。將答案連回本頁的資料與限制，不另推定未提供的個案結果。
+
+【轉場】
+謝謝各位，接下來歡迎分享你們的應用經驗與問題。
+
+SIMPLE ENGLISH SPEAKER SCRIPT
+Speaking time: about 3–5 minutes with a slow pace, chart explanation, and 60–90 seconds for discussion. Use either the Chinese or English version.
+
+After making a teaching video, we need to help people find it. This slide shows one possible plan.
+
+First, keep the full video in a main place, such as YouTube. Include a clear title, sources, and a version date. This gives people a place to return for the complete explanation.
+
+Second, offer other formats. An audio version may suit listening while traveling. A short summary may suit a professional LINE group.
+
+Third, use a social post with key points and a link to the full video. Link previews and automatic posting may work differently on each platform. They need to be checked in practice.
+
+We also need to adjust the content for the audience. A version for doctors and a version for patients should differ in depth and language, not only in length.
+
+Views are useful, but they do not prove learning or better care. Ask a question linked to the teaching goal. Review the answers and the questions people send back.
+
+That feedback can improve the next version. Sharing then becomes part of an ongoing teaching process. The goal is to help people understand and use the information, not simply to send the same video to more places.
+
+[Look at the slide and discuss]
+Please take twenty seconds to look at the slide again. What feedback would help you improve the next teaching video?
+[Pause for 40–70 seconds. Invite one answer, or give a short example from your own work.]
+
+[Next slide]
+Thank you. I welcome your questions and comments.
+
+來源／Sources（不需朗讀 / Not for narration）
+生成性AI在糖尿病管理的應用_北京202608_逐字稿.md
+附件逐字稿章節：51。依本頁實際畫面調整敘事與適用條件。
+Original supplied slide image, Slide_51.png. Interpretive teaching commentary based on the supplied figure. Demonstration workflows and suggested implementation examples are not presented as trial results.
+
+
+---
