@@ -1,17 +1,17 @@
-# AI Diabetes — Simple English Practice
+# AI Diabetes — English Speaking Lab
 
-51 張投影片，各自一段短英文。英文在前，中文提示在後。每頁約 40–60 個英文單字，純朗讀約 20–45 秒（依語速而異）；已取消原先每頁 3–5 分鐘的長篇安排。
+[開啟 ChatGPT 練習網站](https://diabetes-speaking-lab.zinojeng.chatgpt.site)
 
-- [純英文講稿：51 頁](english-only.md)
-- [英文優先＋中文提示](speaker-notes-latest.md)
-- [英文講稿＋發音練習](practice-guide.md)
-- [L／R、A、尾音指南](pronunciation-guide.md)
+網站已發布，使用建立此網站的 ChatGPT 帳號登入。不需要登入 Cloudflare。
+
+51 張投影片，每頁包含原始投影片縮圖（滑過放大／點擊固定查看）、短英文稿、可選的延伸說明、中文提示與發音練習。短版與延伸版可分開逐句播放、調整速度、重複跟讀。語音由裝置提供，非預製 MP3。
+
+- [純英文短稿](english-only.md)
+- [短稿＋完整延伸說明](optional-explanations.md)
+- [發音指南](pronunciation-guide.md)
 - [原長版中英講稿](archive/long-version-speaker-notes-latest.md)
-- [Cloudflare 部署設定](CLOUDFLARE.md)
 
-網頁在 `dist/`：每頁先顯示短英文，可逐句播放、調整速度、重複跟讀。中文提示和發音練習放在後面。語音由裝置提供，非預製 MP3。GitHub 的檔案頁不會執行語音功能；需部署網站，或下載後開啟 dist/index.html。
-
-Cloudflare 上次登入失敗，尚未確認公開部署成功。此更新同步的是網站原始碼。
+此 GitHub 目錄保存講稿；`dist/` 為先前未發布的靜態版本。含投影片縮圖與延伸播放的最新網站由上方 ChatGPT 網址提供。
 
 ## Slides
 
